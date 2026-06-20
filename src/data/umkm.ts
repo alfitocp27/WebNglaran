@@ -1,0 +1,54 @@
+import type { UmkmItem } from '../types/content'
+
+export const umkmList: UmkmItem[] = [
+  {
+    title: 'Kopi Bubuk Mbah Darmo',
+    category: 'Kuliner',
+    description: 'Kopi robusta asli dari perbukitan Nglaran, dipanggang dengan kayu bakar mempertahankan aroma.',
+    imageUrl: 'https://images.unsplash.com/photo-1559525839-b184a4d698c7?q=80&w=2670&auto=format&fit=crop',
+    whatsapp: 'https://wa.me/6281234567890',
+    location: 'RT 02',
+    hasVideo: true,
+  },
+  {
+    title: 'Sentra Anyaman Bambu',
+    category: 'Kerajinan',
+    description: 'Berbagai produk rumah tangga dan dekorasi eksotik yang dianyam rapi oleh ibu-ibu.',
+    imageUrl: 'https://images.unsplash.com/photo-1516248384462-8e104f26bafa?q=80&w=2669&auto=format&fit=crop',
+    whatsapp: 'https://wa.me/6281234567890',
+    location: 'RT 04',
+  },
+  {
+    title: 'Keripik Pisang Arjuna',
+    category: 'Camilan',
+    description: 'Olahan pisang pilihan dengan varian rasa manis, gurih, dan pedas yang renyah.',
+    imageUrl: 'https://images.unsplash.com/photo-1621939514649-280e2ee25f60?q=80&w=2670&auto=format&fit=crop',
+    whatsapp: 'https://wa.me/6281234567890',
+    location: 'RT 01',
+  },
+  {
+    title: 'Batik Tulis Sekar Alam',
+    category: 'Pakaian',
+    description: 'Kain batik pewarna alami dengan motif khas pegunungan dan pesona flora lokal.',
+    imageUrl: 'https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?q=80&w=2564&auto=format&fit=crop',
+    whatsapp: 'https://wa.me/6281234567890',
+    location: 'RT 05',
+    hasVideo: true,
+  },
+  {
+    title: 'Madu Hutan Asli',
+    category: 'Kesehatan',
+    description: 'Madu hutan alami yang dipanen langsung oleh peternak lebah lokal desa Nglaran.',
+    imageUrl: 'https://images.unsplash.com/photo-1587049352847-ecdfdd876cb7?q=80&w=2680&auto=format&fit=crop',
+    whatsapp: 'https://wa.me/6281234567890',
+    location: 'RT 03',
+  },
+  {
+    title: 'Gula Merah Aren',
+    category: 'Bahan Pokok',
+    description: 'Gula aren organik berkualitas tinggi hasil olahan pengrajin lokal yang turun temurun.',
+    imageUrl: 'https://images.unsplash.com/photo-1614777598822-7711462006ed?q=80&w=2670&auto=format&fit=crop',
+    whatsapp: 'https://wa.me/6281234567890',
+    location: 'RT 06',
+  },
+]
