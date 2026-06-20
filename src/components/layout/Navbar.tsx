@@ -24,6 +24,7 @@ export default function Navbar() {
   return (
     <>
       <nav
+        aria-label="Navigasi utama"
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 flex justify-between items-center px-6 lg:px-12 xl:px-32 ${
           isScrolled
             ? 'bg-white/90 backdrop-blur-md py-4 border-b border-zinc-100'
@@ -49,6 +50,7 @@ export default function Navbar() {
           onClick={() => setIsOpen(true)}
           className={`lg:hidden p-2 -mr-2 transition-colors ${brandClass}`}
           aria-label="Buka menu"
+          aria-expanded={isOpen}
         >
           <Menu className="w-6 h-6" />
         </button>
@@ -66,8 +68,11 @@ export default function Navbar() {
       </nav>
 
       <div
+        role="dialog"
+        aria-modal="true"
+        aria-label="Menu navigasi"
         className={`fixed inset-0 bg-zinc-900 z-[60] transition-transform duration-500 origin-top ${
-          isOpen ? 'scale-y-100' : 'scale-y-0'
+          isOpen ? 'scale-y-100 pointer-events-auto' : 'scale-y-0 pointer-events-none'
         } lg:hidden flex flex-col`}
       >
         <div className="p-6 flex justify-end">

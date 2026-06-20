@@ -107,8 +107,11 @@ export function FocusRail({
 
   return (
     <div
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Galeri foto kegiatan"
       className={cn(
-        'group relative flex h-[600px] w-full flex-col overflow-hidden bg-transparent text-zinc-900 outline-none select-none',
+        'group relative flex h-[480px] md:h-[600px] w-full flex-col overflow-hidden bg-transparent text-zinc-900 outline-none select-none',
         className,
       )}
       onMouseEnter={() => setIsHovering(true)}
@@ -119,7 +122,7 @@ export function FocusRail({
     >
       <div className="relative z-10 flex flex-1 flex-col justify-center px-4 md:px-8 pt-8">
         <motion.div
-          className="relative mx-auto flex h-[360px] w-full max-w-6xl items-center justify-center perspective-[1200px] cursor-grab active:cursor-grabbing"
+          className="relative mx-auto flex h-[280px] md:h-[360px] w-full max-w-6xl items-center justify-center perspective-[1200px] cursor-grab active:cursor-grabbing"
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           dragElastic={0.2}
@@ -134,7 +137,7 @@ export function FocusRail({
 
             const isCenter = offset === 0
             const dist = Math.abs(offset)
-            const xOffset = offset * 320
+            const xOffset = offset * (typeof window !== 'undefined' && window.innerWidth < 768 ? 200 : 320)
             const zOffset = -dist * 180
             const scale = isCenter ? 1 : 0.85
             const rotateY = offset * -20
@@ -145,7 +148,7 @@ export function FocusRail({
               <motion.div
                 key={absIndex}
                 className={cn(
-                  'absolute aspect-[3/4] w-[260px] md:w-[300px] rounded-2xl border-t border-white/20 bg-neutral-900 shadow-2xl transition-shadow duration-300',
+                  'absolute aspect-[3/4] w-[180px] md:w-[300px] rounded-2xl border-t border-white/20 bg-neutral-900 shadow-2xl transition-shadow duration-300',
                   isCenter ? 'z-20 shadow-white/10' : 'z-10',
                 )}
                 initial={false}

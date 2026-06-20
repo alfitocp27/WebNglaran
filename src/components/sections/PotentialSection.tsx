@@ -64,10 +64,14 @@ export default function PotentialSection() {
                       className={`w-6 h-6 ${
                         item.isDark ? 'text-zinc-400' : 'text-accent-100'
                       }`}
+                      aria-hidden="true"
                     />
                   )}
                   {!Icon && !item.isAccent && (
-                    <div className="w-8 h-8 bg-zinc-900 text-white rounded-full flex items-center justify-center text-xs group-hover:bg-accent transition-colors">
+                    <div
+                      className="w-8 h-8 bg-zinc-900 text-white rounded-full flex items-center justify-center text-xs group-hover:bg-accent transition-colors"
+                      aria-hidden="true"
+                    >
                       +
                     </div>
                   )}

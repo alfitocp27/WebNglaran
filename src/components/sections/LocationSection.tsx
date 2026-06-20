@@ -21,11 +21,15 @@ export default function LocationSection() {
           dalam pengembangan. Versi peta fisik tersedia di Balai Padukuhan.
         </p>
 
-        <div className="w-full aspect-[4/3] md:aspect-[21/9] bg-zinc-200 rounded-3xl relative overflow-hidden group border border-zinc-300">
+        <div
+          className="w-full aspect-[4/3] md:aspect-[21/9] bg-zinc-200 rounded-3xl relative overflow-hidden group border border-zinc-300"
+          role="img"
+          aria-label="Peta area Padukuhan Nglaran — dalam pengembangan"
+        >
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center space-y-2 relative z-10">
               <div className="w-16 h-16 bg-white/50 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform cursor-pointer shadow-sm">
-                <MapPin className="w-6 h-6 text-zinc-600" />
+                <MapPin className="w-6 h-6 text-zinc-600" aria-hidden="true" />
               </div>
               <span className="text-xs font-bold uppercase tracking-widest text-zinc-500 block">
                 Peta Digital Padukuhan

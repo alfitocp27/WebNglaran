@@ -5,6 +5,7 @@ export default function Footer() {
   return (
     <footer
       id="kontak"
+      aria-label="Kontak dan informasi"
       className="bg-zinc-900 pt-24 lg:pt-32 pb-8 px-6 lg:px-12 xl:px-32 relative flex flex-col mt-auto"
     >
       <div className="max-w-7xl mx-auto w-full">
@@ -43,7 +44,7 @@ export default function Footer() {
                     href={`mailto:${contactInfo.email}`}
                     className="hover:text-white transition-colors font-medium flex items-center gap-2"
                   >
-                    <Mail className="w-3 h-3" />
+                    <Mail className="w-3 h-3" aria-hidden="true" />
                     {contactInfo.email}
                   </a>
                 </li>
@@ -52,7 +53,7 @@ export default function Footer() {
                     href={`tel:${contactInfo.phone}`}
                     className="hover:text-white transition-colors flex items-center gap-2"
                   >
-                    <Phone className="w-3 h-3" />
+                    <Phone className="w-3 h-3" aria-hidden="true" />
                     {contactInfo.phone}
                   </a>
                 </li>
@@ -61,7 +62,7 @@ export default function Footer() {
                     href={contactInfo.social.instagram}
                     className="flex items-center gap-2 hover:text-white transition-colors group text-zinc-500 text-xs font-bold uppercase tracking-widest"
                   >
-                    <svg className="w-4 h-4 text-zinc-500 group-hover:text-white transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg className="w-4 h-4 text-zinc-500 group-hover:text-white transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                       <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
                       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                       <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
@@ -72,7 +73,7 @@ export default function Footer() {
                     href={contactInfo.social.youtube}
                     className="flex items-center gap-2 hover:text-white transition-colors group text-zinc-500 text-xs font-bold uppercase tracking-widest"
                   >
-                    <Play className="w-4 h-4 text-zinc-500 group-hover:text-white transition-colors" />
+                    <Play className="w-4 h-4 text-zinc-500 group-hover:text-white transition-colors" aria-hidden="true" />
                     YouTube
                   </a>
                 </li>

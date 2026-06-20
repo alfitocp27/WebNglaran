@@ -76,13 +76,13 @@ export function AnimatedPresenceCard({
         <div className="relative h-64 overflow-hidden rounded-t-[2rem]">
           <img
             src={imageUrl}
-            alt=""
+            alt={typeof title === 'string' ? title : ''}
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
           {hasVideo && (
             <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
               <div className="w-14 h-14 bg-white/20 backdrop-blur-md flex items-center justify-center rounded-full border border-white/40 shadow-lg group-hover:bg-white/30 transition-colors">
-                <Play fill="white" className="w-6 h-6 text-white ml-1" />
+                <Play fill="white" className="w-6 h-6 text-white ml-1" aria-hidden="true" />
               </div>
             </div>
           )}
@@ -110,6 +110,7 @@ export function AnimatedPresenceCard({
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                aria-hidden="true"
               >
                 <path d="M5 12h14" />
                 <path d="m12 5 7 7-7 7" />
