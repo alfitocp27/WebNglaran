@@ -21,7 +21,9 @@ export default function LocationSection() {
           Peta interaktif membantu Anda menemukan lokasi Balai Padukuhan.
         </p>
 
-        <InteractiveMap />
+        <div className="parallax-map w-full">
+          <InteractiveMap />
+        </div>
       </div>
     </section>
   )

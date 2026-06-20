@@ -26,7 +26,7 @@ export default function ProfileSection() {
           </p>
         </div>
 
-        <div className="lg:w-1/2 w-full pt-8 lg:pt-0 stats-container grid grid-cols-2 gap-x-8 gap-y-12">
+        <div className="lg:w-1/2 w-full pt-8 lg:pt-0 stats-container parallax-stats grid grid-cols-2 gap-x-8 gap-y-12">
           {stats.map((stat) => (
             <StatItem key={stat.label} value={stat.value} label={stat.label} />
           ))}

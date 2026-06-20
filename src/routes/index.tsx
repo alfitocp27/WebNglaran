@@ -121,6 +121,60 @@ export default function HomePage() {
           },
         )
       }
+
+      // Parallax: Profile stats move slightly faster
+      const parallaxStats = document.querySelector<HTMLElement>('.parallax-stats')
+      if (parallaxStats) {
+        gsap.fromTo(parallaxStats,
+          { y: 30 },
+          {
+            y: -30,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: parallaxStats,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 0.5,
+            },
+          },
+        )
+      }
+
+      // Parallax: Potensi cards subtle depth
+      const parallaxPotensi = document.querySelector<HTMLElement>('.parallax-potensi')
+      if (parallaxPotensi) {
+        gsap.fromTo(parallaxPotensi,
+          { y: 40 },
+          {
+            y: -20,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: parallaxPotensi,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 0.8,
+            },
+          },
+        )
+      }
+
+      // Parallax: Map moves slightly slower (feels "anchored")
+      const parallaxMap = document.querySelector<HTMLElement>('.parallax-map')
+      if (parallaxMap) {
+        gsap.fromTo(parallaxMap,
+          { y: 50 },
+          {
+            y: -10,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: parallaxMap,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 1,
+            },
+          },
+        )
+      }
     },
     { scope: container },
   )

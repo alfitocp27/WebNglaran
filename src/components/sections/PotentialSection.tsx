@@ -22,7 +22,7 @@ export default function PotentialSection() {
           </div>
         </div>
 
-        <div className="stagger-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="stagger-container parallax-potensi grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {potentials.map((item, i) => {
             const Icon = i === 1 ? Droplets : i === 2 ? Sun : null
             return (
