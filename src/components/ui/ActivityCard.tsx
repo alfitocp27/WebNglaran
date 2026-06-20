@@ -23,6 +23,8 @@ export default function ActivityCard({ title, description, image, className = ''
           src={imgSrc}
           alt={title}
           onError={handleError}
+          loading="lazy"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
         />
       </div>

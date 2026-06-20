@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 interface Particle {
   x: number
@@ -11,8 +11,18 @@ interface Particle {
 
 export default function FloatingParticles() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const [isMobile, setIsMobile] = useState(true)
 
   useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
+
+  useEffect(() => {
+    if (isMobile) return
+
     const canvas = canvasRef.current
     if (!canvas) return
     const ctx = canvas.getContext('2d')
@@ -27,14 +37,14 @@ export default function FloatingParticles() {
     }
 
     const createParticles = () => {
-      const count = Math.floor((canvas.width * canvas.height) / 25000)
-      particles = Array.from({ length: Math.min(count, 60) }, () => ({
+      const count = Math.floor((canvas.width * canvas.height) / 30000)
+      particles = Array.from({ length: Math.min(count, 40) }, () => ({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         vx: (Math.random() - 0.5) * 0.3,
         vy: -Math.random() * 0.4 - 0.1,
         size: Math.random() * 2 + 1,
-        opacity: Math.random() * 0.4 + 0.1,
+        opacity: Math.random() * 0.3 + 0.1,
       }))
     }
 
@@ -73,7 +83,9 @@ export default function FloatingParticles() {
     return () => {
       cancelAnimationFrame(animId)
     }
-  }, [])
+  }, [isMobile])
+
+  if (isMobile) return null
 
   return (
     <canvas

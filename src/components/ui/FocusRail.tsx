@@ -179,6 +179,8 @@ export function FocusRail({
                   src={item.imageSrc}
                   alt={item.title}
                   className="absolute inset-0 w-full h-full rounded-2xl object-cover pointer-events-none"
+                  loading="lazy"
+                  decoding="async"
                   onError={handleImgError}
                 />
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
