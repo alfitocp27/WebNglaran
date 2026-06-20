@@ -149,7 +149,7 @@ export function FocusRail({
               <motion.div
                 key={absIndex}
                 className={cn(
-                  'absolute rounded-2xl border-t border-white/20 bg-neutral-900 shadow-2xl transition-shadow duration-300 overflow-hidden',
+                  'gallery-item absolute rounded-2xl border-t border-white/20 bg-neutral-900 shadow-2xl transition-shadow duration-300 overflow-hidden',
                   isCenter ? 'z-20 shadow-white/10' : 'z-10',
                 )}
                 initial={false}

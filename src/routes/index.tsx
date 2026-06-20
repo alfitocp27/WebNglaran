@@ -101,6 +101,24 @@ export default function HomePage() {
           )
         }
       })
+
+      const galleryItems = gsap.utils.toArray<HTMLElement>('.gallery-item')
+      if (galleryItems.length > 0) {
+        gsap.fromTo(galleryItems,
+          { scale: 0.9, opacity: 0 },
+          {
+            scrollTrigger: {
+              trigger: '.gallery-container',
+              start: 'top 85%',
+            },
+            scale: 1,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: 'back.out(1.2)',
+          },
+        )
+      }
     },
     { scope: container },
   )
