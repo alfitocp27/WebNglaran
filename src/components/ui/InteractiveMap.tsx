@@ -64,10 +64,10 @@ export default function InteractiveMap() {
   }, [])
 
   return (
-    <div className="relative w-full aspect-[4/3] md:aspect-[21/9] rounded-3xl overflow-hidden border border-zinc-300 dark:border-zinc-700 bg-zinc-200 dark:bg-zinc-800">
-      <div ref={mapRef} className="absolute inset-0 w-full h-full" />
+    <div className="relative w-full aspect-[4/3] md:aspect-[21/9] rounded-3xl overflow-hidden border border-zinc-300 dark:border-zinc-700 bg-zinc-200 dark:bg-zinc-800" style={{ isolation: 'isolate' }}>
+      <div ref={mapRef} className="absolute inset-0 w-full h-full" style={{ zIndex: 0 }} />
       {!loaded && (
-        <div className="absolute inset-0 flex items-center justify-center bg-zinc-200 dark:bg-zinc-800 z-10">
+        <div className="absolute inset-0 flex items-center justify-center bg-zinc-200 dark:bg-zinc-800" style={{ zIndex: 1 }}>
           <div className="text-center space-y-2">
             <div className="w-8 h-8 border-2 border-zinc-400 border-t-transparent rounded-full animate-spin mx-auto" />
             <p className="text-xs text-zinc-500 dark:text-zinc-400">Memuat peta...</p>
