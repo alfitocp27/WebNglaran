@@ -31,6 +31,7 @@ export interface UmkmItem {
   whatsapp: string
   location: string
   hasVideo?: boolean
+  videoUrl?: string
 }
 
 export interface GalleryItem {

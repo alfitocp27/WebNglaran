@@ -6,7 +6,7 @@ export default function Footer() {
     <footer
       id="kontak"
       aria-label="Kontak dan informasi"
-      className="bg-zinc-900 pt-24 lg:pt-32 pb-8 px-6 lg:px-12 xl:px-32 relative flex flex-col mt-auto"
+      className="bg-zinc-900 dark:bg-[#0a0a0b] pt-24 lg:pt-32 pb-8 px-6 lg:px-12 xl:px-32 relative flex flex-col mt-auto"
     >
       <div className="max-w-7xl mx-auto w-full">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-16 lg:gap-24 mb-16 lg:mb-24">

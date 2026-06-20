@@ -9,6 +9,7 @@ export const umkmList: UmkmItem[] = [
     whatsapp: 'https://wa.me/6281234567890',
     location: 'RT 02',
     hasVideo: true,
+    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
   },
   {
     title: 'Sentra Anyaman Bambu',
@@ -34,6 +35,7 @@ export const umkmList: UmkmItem[] = [
     whatsapp: 'https://wa.me/6281234567890',
     location: 'RT 05',
     hasVideo: true,
+    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
   },
   {
     title: 'Madu Hutan Asli',

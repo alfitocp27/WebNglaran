@@ -1,8 +1,9 @@
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 
+import { useDarkMode } from '@/src/lib/useDarkMode'
 import Navbar from '@/src/components/layout/Navbar'
 import Footer from '@/src/components/layout/Footer'
 import HeroSection from '@/src/components/sections/HeroSection'
@@ -17,6 +18,11 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function HomePage() {
   const container = useRef<HTMLDivElement>(null)
+  const { isDark, toggle: toggleDark } = useDarkMode()
+
+  useEffect(() => {
+    ScrollTrigger.refresh()
+  }, [isDark])
 
   useGSAP(
     () => {
@@ -95,8 +101,6 @@ export default function HomePage() {
           )
         }
       })
-
-
     },
     { scope: container },
   )
@@ -104,9 +108,9 @@ export default function HomePage() {
   return (
     <div
       ref={container}
-      className="relative w-full bg-bg-base font-sans text-zinc-900 selection:bg-zinc-200 selection:text-zinc-900"
+      className="relative w-full bg-bg-base text-zinc-900 dark:text-zinc-100 selection:bg-zinc-200 dark:selection:bg-zinc-700 selection:text-zinc-900 dark:selection:text-zinc-100 transition-colors duration-300 ease-out"
     >
-      <Navbar />
+      <Navbar isDark={isDark} onToggleDark={toggleDark} />
 
       <main>
         <HeroSection />

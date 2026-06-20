@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState, type SyntheticEvent } from 'react'
 import { motion, AnimatePresence, type PanInfo } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { cn } from '@/src/lib/utils'
@@ -26,19 +26,10 @@ function wrap(min: number, max: number, v: number) {
   return ((((v - min) % rangeSize) + rangeSize) % rangeSize) + min
 }
 
-const BASE_SPRING = {
-  type: 'spring' as const,
-  stiffness: 300,
-  damping: 30,
-  mass: 1,
-}
+const BASE_SPRING = { type: 'spring' as const, stiffness: 300, damping: 30, mass: 1 }
+const TAP_SPRING = { type: 'spring' as const, stiffness: 450, damping: 18, mass: 1 }
 
-const TAP_SPRING = {
-  type: 'spring' as const,
-  stiffness: 450,
-  damping: 18,
-  mass: 1,
-}
+const FALLBACK_IMG = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="400"><rect width="300" height="400" fill="%2327272a"/></svg>'
 
 export function FocusRail({
   items,
@@ -50,7 +41,15 @@ export function FocusRail({
 }: FocusRailProps) {
   const [active, setActive] = useState(initialIndex)
   const [isHovering, setIsHovering] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
   const lastWheelTime = useRef<number>(0)
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
 
   const count = items.length
   const activeIndex = wrap(0, count, active)
@@ -70,10 +69,8 @@ export function FocusRail({
     (e: React.WheelEvent) => {
       const now = Date.now()
       if (now - lastWheelTime.current < 400) return
-
       const isHorizontal = Math.abs(e.deltaX) > Math.abs(e.deltaY)
       const delta = isHorizontal ? e.deltaX : e.deltaY
-
       if (Math.abs(delta) > 20) {
         if (delta > 0) handleNext()
         else handlePrev()
@@ -89,11 +86,6 @@ export function FocusRail({
     return () => clearInterval(timer)
   }, [autoPlay, isHovering, handleNext, interval])
 
-  const onKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'ArrowLeft') handlePrev()
-    if (e.key === 'ArrowRight') handleNext()
-  }
-
   const swipeConfidenceThreshold = 10000
   const swipePower = (offset: number, velocity: number) => Math.abs(offset) * velocity
 
@@ -104,6 +96,12 @@ export function FocusRail({
   }
 
   const visibleIndices = [-2, -1, 0, 1, 2]
+  const cw = isMobile ? 260 : 400
+  const ch = isMobile ? 195 : 300
+
+  const handleImgError = (e: SyntheticEvent<HTMLImageElement>) => {
+    (e.target as HTMLImageElement).src = FALLBACK_IMG
+  }
 
   return (
     <div
@@ -111,18 +109,21 @@ export function FocusRail({
       aria-roledescription="carousel"
       aria-label="Galeri foto kegiatan"
       className={cn(
-        'group relative flex h-[480px] md:h-[600px] w-full flex-col overflow-hidden bg-transparent text-zinc-900 outline-none select-none',
+        'group relative flex h-[520px] md:h-[560px] w-full flex-col overflow-hidden outline-none select-none',
         className,
       )}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
       tabIndex={0}
-      onKeyDown={onKeyDown}
+      onKeyDown={(e) => {
+        if (e.key === 'ArrowLeft') handlePrev()
+        if (e.key === 'ArrowRight') handleNext()
+      }}
       onWheel={onWheel}
     >
       <div className="relative z-10 flex flex-1 flex-col justify-center px-4 md:px-8 pt-8">
         <motion.div
-          className="relative mx-auto flex h-[280px] md:h-[360px] w-full max-w-6xl items-center justify-center perspective-[1200px] cursor-grab active:cursor-grabbing"
+          className="relative mx-auto flex h-[200px] md:h-[300px] w-full max-w-6xl items-center justify-center perspective-[1200px] cursor-grab active:cursor-grabbing"
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           dragElastic={0.2}
@@ -137,7 +138,7 @@ export function FocusRail({
 
             const isCenter = offset === 0
             const dist = Math.abs(offset)
-            const xOffset = offset * (typeof window !== 'undefined' && window.innerWidth < 768 ? 200 : 320)
+            const xOffset = offset * 320
             const zOffset = -dist * 180
             const scale = isCenter ? 1 : 0.85
             const rotateY = offset * -20
@@ -148,7 +149,7 @@ export function FocusRail({
               <motion.div
                 key={absIndex}
                 className={cn(
-                  'absolute aspect-[3/4] w-[180px] md:w-[300px] rounded-2xl border-t border-white/20 bg-neutral-900 shadow-2xl transition-shadow duration-300',
+                  'absolute rounded-2xl border-t border-white/20 bg-neutral-900 shadow-2xl transition-shadow duration-300 overflow-hidden',
                   isCenter ? 'z-20 shadow-white/10' : 'z-10',
                 )}
                 initial={false}
@@ -160,16 +161,25 @@ export function FocusRail({
                   opacity,
                   filter: `blur(0px) brightness(${brightness})`,
                 }}
-                transition={(val: string) => (val === 'scale' ? TAP_SPRING : BASE_SPRING)}
-                style={{ transformStyle: 'preserve-3d' }}
+                transition={{
+                  scale: TAP_SPRING,
+                  x: BASE_SPRING,
+                  z: BASE_SPRING,
+                  rotateY: BASE_SPRING,
+                  opacity: BASE_SPRING,
+                  filter: BASE_SPRING,
+                }}
+                style={{ width: cw, height: ch, transformStyle: 'preserve-3d' }}
                 onClick={() => {
                   if (offset !== 0) setActive((p) => p + offset)
                 }}
               >
+                <div className="absolute inset-0 rounded-2xl bg-neutral-800" />
                 <img
                   src={item.imageSrc}
                   alt={item.title}
-                  className="h-full w-full rounded-2xl object-cover pointer-events-none"
+                  className="absolute inset-0 w-full h-full rounded-2xl object-cover pointer-events-none"
+                  onError={handleImgError}
                 />
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
                 <div className="absolute inset-0 rounded-2xl bg-black/10 pointer-events-none mix-blend-multiply" />
@@ -188,7 +198,7 @@ export function FocusRail({
                 exit={{ opacity: 0, y: -10, filter: 'blur(4px)' }}
                 transition={{ duration: 0.3 }}
               >
-                <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-zinc-900 font-serif italic">
+                <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 font-serif italic">
                   {activeItem.title}
                 </h2>
               </motion.div>
@@ -196,20 +206,20 @@ export function FocusRail({
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-1 rounded-full bg-white/80 p-1 ring-1 ring-zinc-200 shadow-sm backdrop-blur-md">
+            <div className="flex items-center gap-1 rounded-full bg-white/80 dark:bg-zinc-800/80 p-1 ring-1 ring-zinc-200 dark:ring-zinc-700 shadow-sm backdrop-blur-md">
               <button
                 onClick={handlePrev}
-                className="rounded-full p-3 text-zinc-500 transition hover:bg-zinc-100 hover:text-zinc-900 active:scale-95"
+                className="rounded-full p-3 text-zinc-500 dark:text-zinc-400 transition hover:bg-zinc-100 dark:hover:bg-zinc-700 hover:text-zinc-900 dark:hover:text-white active:scale-95"
                 aria-label="Previous"
               >
                 <ChevronLeft className="h-5 w-5" />
               </button>
-              <span className="min-w-[40px] text-center text-xs font-mono text-zinc-400">
+              <span className="min-w-[40px] text-center text-xs font-mono text-zinc-400 dark:text-zinc-500">
                 {activeIndex + 1} / {count}
               </span>
               <button
                 onClick={handleNext}
-                className="rounded-full p-3 text-zinc-500 transition hover:bg-zinc-100 hover:text-zinc-900 active:scale-95"
+                className="rounded-full p-3 text-zinc-500 dark:text-zinc-400 transition hover:bg-zinc-100 dark:hover:bg-zinc-700 hover:text-zinc-900 dark:hover:text-white active:scale-95"
                 aria-label="Next"
               >
                 <ChevronRight className="h-5 w-5" />

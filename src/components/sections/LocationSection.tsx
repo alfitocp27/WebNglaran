@@ -8,42 +8,42 @@ export default function LocationSection() {
     >
       <div className="max-w-7xl mx-auto flex flex-col items-center">
         <div className="space-y-[-5px] mb-6 text-center">
-          <h2 className="reveal-header font-bold uppercase text-4xl lg:text-5xl leading-none tracking-tighter">
+          <h2 className="reveal-header font-bold uppercase text-4xl lg:text-5xl leading-none tracking-tighter text-zinc-900 dark:text-zinc-100">
             Temukan
           </h2>
-          <h2 className="reveal-header font-serif italic text-4xl lg:text-5xl leading-none tracking-tight">
+          <h2 className="reveal-header font-serif italic text-4xl lg:text-5xl leading-none tracking-tight text-zinc-900 dark:text-zinc-100">
             Kami.
           </h2>
         </div>
 
-        <p className="reveal-header text-zinc-500 max-w-lg text-center mb-16 text-sm leading-relaxed">
+        <p className="reveal-header text-zinc-500 dark:text-zinc-400 max-w-lg text-center mb-16 text-sm leading-relaxed">
           Berkunjunglah dan rasakan langsung kehangatan Padukuhan Nglaran. Peta digital sedang
           dalam pengembangan. Versi peta fisik tersedia di Balai Padukuhan.
         </p>
 
         <div
-          className="w-full aspect-[4/3] md:aspect-[21/9] bg-zinc-200 rounded-3xl relative overflow-hidden group border border-zinc-300"
+          className="w-full aspect-[4/3] md:aspect-[21/9] bg-zinc-200 dark:bg-zinc-800 rounded-3xl relative overflow-hidden group border border-zinc-300 dark:border-zinc-700"
           role="img"
           aria-label="Peta area Padukuhan Nglaran — dalam pengembangan"
         >
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center space-y-2 relative z-10">
-              <div className="w-16 h-16 bg-white/50 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform cursor-pointer shadow-sm">
-                <MapPin className="w-6 h-6 text-zinc-600" aria-hidden="true" />
+              <div className="w-16 h-16 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform cursor-pointer shadow-sm">
+                <MapPin className="w-6 h-6 text-zinc-600 dark:text-zinc-400" aria-hidden="true" />
               </div>
-              <span className="text-xs font-bold uppercase tracking-widest text-zinc-500 block">
+              <span className="text-xs font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400 block">
                 Peta Digital Padukuhan
               </span>
-              <p className="text-[10px] text-zinc-400 px-8">
+              <p className="text-[10px] text-zinc-400 dark:text-zinc-500 px-8">
                 Sistem Informasi Geografis (SIG) Terintegrasi
               </p>
             </div>
           </div>
-          <div className="absolute bottom-6 left-6 right-6 p-4 bg-white/90 backdrop-blur-sm rounded-xl border border-zinc-200 shadow-sm flex items-center justify-between">
-            <p className="text-[10px] uppercase font-bold tracking-widest text-zinc-600">
+          <div className="absolute bottom-6 left-6 right-6 p-4 bg-white/90 dark:bg-zinc-800/90 backdrop-blur-sm rounded-xl border border-zinc-200 dark:border-zinc-700 shadow-sm flex items-center justify-between">
+            <p className="text-[10px] uppercase font-bold tracking-widest text-zinc-600 dark:text-zinc-400">
               Skala 1:500
             </p>
-            <p className="text-[10px] leading-tight text-zinc-500 font-medium hidden sm:block">
+            <p className="text-[10px] leading-tight text-zinc-500 dark:text-zinc-400 font-medium hidden sm:block">
               Tersedia cetak fisik di Kantor Balai Padukuhan.
             </p>
           </div>

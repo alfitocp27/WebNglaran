@@ -11,11 +11,13 @@ export default function HeroSection() {
           role="img"
           aria-label="Pemandangan perbukitan dan persawahan hijau Padukuhan Nglaran"
         >
+          <div className="absolute inset-0 bg-zinc-900" />
           <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/40 to-transparent z-10" />
           <img
             src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=2670&auto=format&fit=crop"
             alt=""
             className="hero-img w-full h-[120%] object-cover object-center absolute top-[-10%]"
+            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
           />
         </div>
 
