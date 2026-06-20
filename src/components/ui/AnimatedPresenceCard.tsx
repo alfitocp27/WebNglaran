@@ -1,0 +1,128 @@
+import { useRef, type ReactNode } from 'react'
+import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion'
+import { Play } from 'lucide-react'
+import { cn } from '@/src/lib/utils'
+
+interface AnimatedPresenceCardProps {
+  topText: string
+  imageUrl: string
+  title: ReactNode
+  description: string
+  buttonText: string
+  buttonHref?: string
+  footerLeft: ReactNode
+  footerRight: ReactNode
+  className?: string
+  hasVideo?: boolean
+}
+
+export function AnimatedPresenceCard({
+  topText,
+  imageUrl,
+  title,
+  description,
+  buttonText,
+  buttonHref = '#',
+  footerLeft,
+  footerRight,
+  className,
+  hasVideo = false,
+}: AnimatedPresenceCardProps) {
+  const ref = useRef<HTMLDivElement>(null)
+
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
+
+  const rotateX = useTransform(mouseY, [-150, 150], [10, -10])
+  const rotateY = useTransform(mouseX, [-200, 200], [-10, 10])
+
+  const springConfig = { damping: 20, stiffness: 150 }
+  const springRotateX = useSpring(rotateX, springConfig)
+  const springRotateY = useSpring(rotateY, springConfig)
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!ref.current) return
+    const rect = ref.current.getBoundingClientRect()
+    mouseX.set(e.clientX - rect.left - rect.width / 2)
+    mouseY.set(e.clientY - rect.top - rect.height / 2)
+  }
+
+  const handleMouseLeave = () => {
+    mouseX.set(0)
+    mouseY.set(0)
+  }
+
+  return (
+    <motion.div
+      ref={ref}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        rotateX: springRotateX,
+        rotateY: springRotateY,
+        transformStyle: 'preserve-3d',
+        perspective: '1000px',
+      }}
+      className={cn(
+        'group relative w-full overflow-hidden rounded-[2rem] bg-zinc-900 border border-zinc-800 shadow-xl',
+        'text-white transition-all duration-300 ease-out hover:shadow-2xl hover:border-zinc-700',
+        className,
+      )}
+    >
+      <div style={{ transform: 'translateZ(20px)' }} className="relative h-full flex flex-col">
+        <div className="absolute top-6 left-6 z-10 text-[10px] font-bold uppercase tracking-widest text-white/90 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-full">
+          {topText}
+        </div>
+        <div className="relative h-64 overflow-hidden rounded-t-[2rem]">
+          <img
+            src={imageUrl}
+            alt=""
+            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          {hasVideo && (
+            <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
+              <div className="w-14 h-14 bg-white/20 backdrop-blur-md flex items-center justify-center rounded-full border border-white/40 shadow-lg group-hover:bg-white/30 transition-colors">
+                <Play fill="white" className="w-6 h-6 text-white ml-1" />
+              </div>
+            </div>
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent z-10 pointer-events-none" />
+        </div>
+
+        <div className="p-8 flex-grow flex flex-col">
+          <h2 className="text-2xl lg:text-3xl font-serif italic leading-tight text-white">
+            {title}
+          </h2>
+          <p className="mt-3 text-zinc-400 text-sm leading-relaxed flex-grow">{description}</p>
+          <div className="mt-8">
+            <a
+              href={buttonHref}
+              className="inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-white transition-colors duration-200 hover:text-zinc-300 pb-1 border-b border-transparent hover:border-zinc-300"
+            >
+              {buttonText}{' '}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div className="flex items-center justify-between border-t border-zinc-800 p-6 text-xs text-zinc-500 font-mono">
+          <span>{footerLeft}</span>
+          <span>{footerRight}</span>
+        </div>
+      </div>
+    </motion.div>
+  )
+}
