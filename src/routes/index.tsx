@@ -13,6 +13,8 @@ import ActivitySection from '@/src/components/sections/ActivitySection'
 import GallerySection from '@/src/components/sections/GallerySection'
 import UmkmSection from '@/src/components/sections/UmkmSection'
 import LocationSection from '@/src/components/sections/LocationSection'
+import BackToTop from '@/src/components/ui/BackToTop'
+import ScrollProgress from '@/src/components/ui/ScrollProgress'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -129,6 +131,7 @@ export default function HomePage() {
       className="relative w-full bg-bg-base text-zinc-900 dark:text-zinc-100 selection:bg-zinc-200 dark:selection:bg-zinc-700 selection:text-zinc-900 dark:selection:text-zinc-100 transition-colors duration-300 ease-out"
     >
       <Navbar isDark={isDark} onToggleDark={toggleDark} />
+      <ScrollProgress />
 
       <main>
         <HeroSection />
@@ -141,6 +144,7 @@ export default function HomePage() {
       </main>
 
       <Footer />
+      <BackToTop />
     </div>
   )
 }

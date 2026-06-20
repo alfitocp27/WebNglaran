@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react'
+import FloatingParticles from '@/src/components/ui/FloatingParticles'
 
 export default function HeroSection() {
   return (
@@ -20,6 +21,8 @@ export default function HeroSection() {
             onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
           />
         </div>
+
+        <FloatingParticles />
 
       <div className="hero-text relative z-20 max-w-4xl pt-32">
         <div className="flex items-center gap-3 mb-8">
