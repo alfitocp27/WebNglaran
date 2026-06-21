@@ -9,7 +9,7 @@ export default function PotentialSection() {
     >
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
-          <span className="text-zinc-400 dark:text-zinc-500 uppercase tracking-widest text-[10px] font-bold mb-4 block">
+          <span className="text-zinc-400 dark:text-zinc-500 uppercase tracking-widest text-xs font-bold mb-4 block">
             Potensi Desa
           </span>
           <div className="space-y-[-5px]">
@@ -33,15 +33,15 @@ export default function PotentialSection() {
                     ? 'bg-zinc-900 dark:bg-zinc-950 text-white shadow-xl overflow-hidden relative'
                     : item.isAccent
                       ? 'bg-accent text-white'
-                      : 'bg-white dark:bg-zinc-800/80 p-10 border border-zinc-100 dark:border-zinc-700 shadow-sm dark:shadow-zinc-900/50'
-                } ${item.colSpan || ''} p-10 rounded-3xl flex flex-col justify-between items-start group`}
+                      : 'bg-white dark:bg-zinc-800/80 p-6 md:p-10 border border-zinc-100 dark:border-zinc-700 shadow-sm dark:shadow-zinc-900/50'
+                } ${item.colSpan || ''} p-6 md:p-10 rounded-3xl flex flex-col justify-between items-start group`}
               >
                 {item.isDark && (
                   <div className="absolute -right-10 -top-10 w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:bg-accent/30 transition-all" />
                 )}
                 <div className="relative z-10 flex justify-between items-start w-full mb-8">
                   <span
-                    className={`text-[10px] uppercase tracking-widest font-bold ${
+                    className={`text-xs uppercase tracking-widest font-bold ${
                       item.isDark
                         ? 'text-zinc-500'
                         : item.isAccent

@@ -8,9 +8,9 @@ export default function UmkmSection() {
       className="py-24 lg:py-32 px-6 lg:px-12 xl:px-32 bg-white dark:bg-zinc-900 border-b border-zinc-100 dark:border-zinc-800"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
           <div>
-            <span className="text-zinc-400 dark:text-zinc-500 uppercase tracking-widest text-[10px] font-bold mb-4 block">
+            <span className="text-zinc-400 dark:text-zinc-500 uppercase tracking-widest text-xs font-bold mb-4 block">
               Ekonomi Kreatif
             </span>
             <div className="space-y-[-5px]">

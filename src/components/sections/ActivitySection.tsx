@@ -9,7 +9,7 @@ export default function ActivitySection() {
     >
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
-          <span className="text-zinc-400 dark:text-zinc-500 uppercase tracking-widest text-[10px] font-bold mb-4 block">
+          <span className="text-zinc-400 dark:text-zinc-500 uppercase tracking-widest text-xs font-bold mb-4 block">
             Agenda Desa
           </span>
           <div className="space-y-[-5px]">

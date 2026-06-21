@@ -24,7 +24,7 @@ export default function Footer() {
 
           <div className="lg:w-2/5 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-8 pt-4">
             <div>
-              <h4 className="text-[10px] uppercase tracking-widest font-bold text-zinc-600 mb-6 border-b border-zinc-800 pb-2">
+              <h4 className="text-xs uppercase tracking-widest font-bold text-zinc-600 mb-6 border-b border-zinc-800 pb-2">
                 Kantor Padukuhan
               </h4>
               <ul className="space-y-3 text-zinc-300 text-sm">
@@ -35,25 +35,25 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="text-[10px] uppercase tracking-widest font-bold text-zinc-600 mb-6 border-b border-zinc-800 pb-2">
+              <h4 className="text-xs uppercase tracking-widest font-bold text-zinc-600 mb-6 border-b border-zinc-800 pb-2">
                 Kontak & Media
               </h4>
               <ul className="space-y-4 text-zinc-300 text-sm">
                 <li>
                   <a
                     href={`mailto:${contactInfo.email}`}
-                    className="hover:text-white transition-colors font-medium flex items-center gap-2"
+                    className="hover:text-white transition-colors font-medium flex items-center gap-2 py-2 min-h-[44px]"
                   >
-                    <Mail className="w-3 h-3" aria-hidden="true" />
+                    <Mail className="w-4 h-4" aria-hidden="true" />
                     {contactInfo.email}
                   </a>
                 </li>
                 <li>
                   <a
                     href={`tel:${contactInfo.phone}`}
-                    className="hover:text-white transition-colors flex items-center gap-2"
+                    className="hover:text-white transition-colors flex items-center gap-2 py-2 min-h-[44px]"
                   >
-                    <Phone className="w-3 h-3" aria-hidden="true" />
+                    <Phone className="w-4 h-4" aria-hidden="true" />
                     {contactInfo.phone}
                   </a>
                 </li>
@@ -82,7 +82,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center text-zinc-500 text-[10px] tracking-widest uppercase font-bold border-t border-zinc-800 pt-8 mt-12">
+        <div className="flex flex-col md:flex-row justify-between items-center text-zinc-500 text-xs tracking-widest uppercase font-bold border-t border-zinc-800 pt-8 mt-12">
           <p>&copy; 2026 Padukuhan Nglaran. Hak Cipta Dilindungi.</p>
           <div className="flex items-center gap-2 mt-4 md:mt-0">
             <div className="w-2 h-2 rounded-full bg-green-500" />

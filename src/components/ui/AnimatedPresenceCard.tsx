@@ -84,7 +84,7 @@ export function AnimatedPresenceCard({
         )}
       >
         <div style={{ transform: 'translateZ(20px)' }} className="relative h-full flex flex-col">
-          <div className="absolute top-6 left-6 z-20 text-[10px] font-bold uppercase tracking-widest text-white/90 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-full">
+          <div className="absolute top-6 left-6 z-20 text-xs font-bold uppercase tracking-widest text-white/90 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-full">
             {topText}
           </div>
 
@@ -123,7 +123,7 @@ export function AnimatedPresenceCard({
                 href={buttonHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-white transition-colors duration-200 hover:text-zinc-300 pb-1 border-b border-transparent hover:border-zinc-300"
+                className="inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-white transition-colors duration-200 hover:text-zinc-300 py-2 border-b border-transparent hover:border-zinc-300 min-h-[44px]"
               >
                 {buttonText}
                 <svg

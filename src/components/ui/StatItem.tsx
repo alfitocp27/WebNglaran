@@ -55,7 +55,7 @@ export default function StatItem({ value, label }: StatItemProps) {
       <div className="font-serif italic text-5xl lg:text-6xl font-light text-zinc-900 dark:text-zinc-100 leading-none">
         {display}
       </div>
-      <div className="text-[10px] uppercase tracking-widest text-zinc-500 dark:text-zinc-400 font-medium mt-1">
+      <div className="text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400 font-medium mt-1">
         {label}
       </div>
     </div>

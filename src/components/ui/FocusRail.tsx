@@ -96,8 +96,9 @@ export function FocusRail({
   }
 
   const visibleIndices = [-2, -1, 0, 1, 2]
-  const cw = isMobile ? 260 : 400
-  const ch = isMobile ? 195 : 300
+  const cw = isMobile ? Math.min(260, window.innerWidth * 0.7) : 400
+  const ch = isMobile ? Math.round(cw * 0.75) : 300
+  const xStep = isMobile ? Math.round(cw * 1.1) : 320
 
   const handleImgError = (e: SyntheticEvent<HTMLImageElement>) => {
     (e.target as HTMLImageElement).src = FALLBACK_IMG
@@ -138,7 +139,7 @@ export function FocusRail({
 
             const isCenter = offset === 0
             const dist = Math.abs(offset)
-            const xOffset = offset * 320
+            const xOffset = offset * xStep
             const zOffset = -dist * 180
             const scale = isCenter ? 1 : 0.85
             const rotateY = offset * -20

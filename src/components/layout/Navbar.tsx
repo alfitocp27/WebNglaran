@@ -23,7 +23,7 @@ export default function Navbar({ isDark, onToggleDark }: NavbarProps) {
   }, [])
 
   const linkClass = (base: string) =>
-    `${base} text-[11px] uppercase tracking-widest font-bold transition-colors border-b border-transparent ${
+    `${base} text-xs uppercase tracking-widest font-bold transition-colors border-b border-transparent ${
       isScrolled
         ? 'text-[#71717a] hover:text-[#18181b] dark:text-[#a1a1aa] dark:hover:text-white hover:border-[#18181b] dark:hover:border-white'
         : 'text-[#ffffffb3] hover:text-white hover:border-white'
@@ -44,7 +44,7 @@ export default function Navbar({ isDark, onToggleDark }: NavbarProps) {
         }`}
       >
         <a href="#beranda" className={`flex flex-col transition-colors ${brandClass}`}>
-          <span className="text-[10px] tracking-[0.3em] uppercase font-bold mb-1 opacity-70">
+          <span className="text-xs tracking-[0.3em] uppercase font-bold mb-1 opacity-70">
             Padukuhan
           </span>
           <span className="text-2xl font-serif italic leading-none">Nglaran.</span>
@@ -58,7 +58,7 @@ export default function Navbar({ isDark, onToggleDark }: NavbarProps) {
           ))}
           <button
             onClick={onToggleDark}
-            className={`p-2 rounded-full transition-colors ${
+            className={`p-2.5 rounded-full transition-colors ${
               isScrolled
                 ? 'text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white'
                 : 'text-white/70 hover:text-white'
@@ -69,17 +69,17 @@ export default function Navbar({ isDark, onToggleDark }: NavbarProps) {
           </button>
         </div>
 
-        <div className="flex items-center gap-2 lg:hidden">
+        <div className="flex items-center gap-1 lg:hidden">
           <button
             onClick={onToggleDark}
-            className={`p-2 transition-colors ${brandClass}`}
+            className={`p-2.5 transition-colors ${brandClass}`}
             aria-label={isDark ? 'Aktifkan mode terang' : 'Aktifkan mode gelap'}
           >
             {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
           </button>
           <button
             onClick={() => setIsOpen(true)}
-            className={`p-2 -mr-2 transition-colors ${brandClass}`}
+            className={`p-2.5 -mr-2 transition-colors ${brandClass}`}
             aria-label="Buka menu"
             aria-expanded={isOpen}
           >
@@ -89,7 +89,7 @@ export default function Navbar({ isDark, onToggleDark }: NavbarProps) {
 
         <a
           href="#kontak"
-          className={`hidden lg:block px-6 py-2 border rounded-full text-[10px] uppercase tracking-tighter font-bold transition-all cursor-pointer ${
+          className={`hidden lg:block px-6 py-2 border rounded-full text-xs uppercase tracking-tighter font-bold transition-all cursor-pointer ${
             isScrolled
               ? 'border-zinc-900 dark:border-white text-zinc-900 dark:text-white hover:bg-zinc-900 hover:text-white dark:hover:bg-white dark:hover:text-zinc-900'
               : 'border-white text-white hover:bg-white hover:text-zinc-900'
@@ -110,14 +110,14 @@ export default function Navbar({ isDark, onToggleDark }: NavbarProps) {
         <div className="p-6 flex justify-between items-center">
           <button
             onClick={onToggleDark}
-            className="p-2 text-white/50 hover:text-white transition-colors"
+            className="p-3 text-white/50 hover:text-white transition-colors"
             aria-label={isDark ? 'Aktifkan mode terang' : 'Aktifkan mode gelap'}
           >
             {isDark ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
           </button>
           <button
             onClick={() => setIsOpen(false)}
-            className="p-2 text-white/50 hover:text-white"
+            className="p-3 text-white/50 hover:text-white"
             aria-label="Tutup menu"
           >
             <X className="w-8 h-8" />
