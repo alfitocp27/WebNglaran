@@ -1,4 +1,4 @@
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, ChevronDown } from 'lucide-react'
 import FloatingParticles from '@/src/components/ui/FloatingParticles'
 
 export default function HeroSection() {
@@ -23,6 +23,16 @@ export default function HeroSection() {
         </div>
 
         <FloatingParticles />
+
+        {/* Scroll Indicator */}
+        <a
+          href="#profil"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-white/60 hover:text-white transition-colors cursor-pointer group"
+          aria-label="Scroll ke bawah"
+        >
+          <span className="text-[10px] uppercase tracking-[0.2em] font-medium">Gulir Kebawah</span>
+          <ChevronDown className="w-5 h-5 animate-bounce" />
+        </a>
 
       <div className="hero-text relative z-20 max-w-4xl pt-32">
         <div className="flex items-center gap-3 mb-8">

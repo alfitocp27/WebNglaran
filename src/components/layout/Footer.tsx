@@ -84,10 +84,6 @@ export default function Footer() {
 
         <div className="flex flex-col md:flex-row justify-between items-center text-zinc-500 text-xs tracking-widest uppercase font-bold border-t border-zinc-800 pt-8 mt-12">
           <p>&copy; 2026 Padukuhan Nglaran. Hak Cipta Dilindungi.</p>
-          <div className="flex items-center gap-2 mt-4 md:mt-0">
-            <div className="w-2 h-2 rounded-full bg-green-500" />
-            <span>Sistem Aktif</span>
-          </div>
         </div>
       </div>
     </footer>
