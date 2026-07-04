@@ -10,7 +10,7 @@ export default function PotentialSection() {
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <span className="text-zinc-400 dark:text-zinc-500 uppercase tracking-widest text-xs font-bold mb-4 block">
-            Potensi Desa
+            Potensi Dusun
           </span>
           <div className="space-y-[-5px]">
             <h2 className="reveal-header font-bold uppercase text-4xl lg:text-5xl leading-none tracking-tighter text-zinc-900 dark:text-zinc-100">
