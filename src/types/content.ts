@@ -20,7 +20,8 @@ export interface PotentialItem {
 export interface ActivityItem {
   title: string
   description: string
-  image: string
+  schedule: string
+  image?: string
 }
 
 export interface UmkmItem {
