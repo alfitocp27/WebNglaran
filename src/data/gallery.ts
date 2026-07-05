@@ -1,39 +1,45 @@
 import type { GalleryItem } from '../types/content'
 
+import imgCup2022 from '../assets/galeri/galeri-nglaran cup 3 2022.jpg'
+import imgCup2023 from '../assets/galeri/galeri-nglaran cup 4 2023.jpg'
+import imgCup2024 from '../assets/galeri/galeri-nglaran cup 5 2024.jpg'
+import imgCup2025 from '../assets/galeri/galeri-nglaran cup 6 2025.jpg'
+import imgTakbir from '../assets/galeri/galeri-takbir keliling.jpg'
+
 export const galleryItems: GalleryItem[] = [
   {
     id: 1,
-    title: 'Kumpul Warga Rutin',
-    description: 'Kegiatan rutin berkumpul bersama warga untuk mempererat tali persaudaraan.',
-    meta: 'Kebersamaan',
-    imageSrc: 'https://images.pexels.com/photos/3892902/pexels-photo-3892902.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    title: 'Nglaran Cup 2022',
+    description: 'Semangat juang warga Nglaran dalam ajang.turnamen antar dusun yang penuhsportivitas.',
+    meta: 'Turnamen',
+    imageSrc: imgCup2022,
   },
   {
     id: 2,
-    title: 'Latihan Gamelan',
-    description: 'Pelestarian budaya melalui latihan gamelan rutin yang diikuti oleh pemuda desa.',
-    meta: 'Seni & Budaya',
-    imageSrc: 'https://images.pexels.com/photos/37429706/pexels-photo-37429706.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    title: 'Nglaran Cup 2023',
+    description: 'Kemeriahan Nglaran Cup edisi keempat yang mempertemukan para talenta muda desa.',
+    meta: 'Turnamen',
+    imageSrc: imgCup2023,
   },
   {
     id: 3,
-    title: 'Lomba Voli Antar RT',
-    description: 'Kemeriahan lomba voli antar rukun tetangga untuk memupuk sportivitas.',
-    meta: 'Olahraga',
-    imageSrc: 'https://images.pexels.com/photos/26630771/pexels-photo-26630771.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    title: 'Nglaran Cup 2024',
+    description: 'Ajang tahunan yang menjadi momen kebersamaan seluruh warga Nglaran.',
+    meta: 'Turnamen',
+    imageSrc: imgCup2024,
   },
   {
     id: 4,
-    title: 'Kerja Bakti Bersih Desa',
-    description: 'Gotong royong membersihkan lingkungan desa agar tetap asri dan sehat.',
-    meta: 'Lingkungan',
-    imageSrc: 'https://images.pexels.com/photos/6647020/pexels-photo-6647020.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    title: 'Nglaran Cup 2025',
+    description: 'Perjalanan panjang tradisi kebersamaan yang terus hidup di setiap generasi.',
+    meta: 'Turnamen',
+    imageSrc: imgCup2025,
   },
   {
     id: 5,
-    title: 'Panen Raya Pertanian',
-    description: 'Wujud syukur atas hasil panen raya dari ladang pertanian desa yang melimpah.',
-    meta: 'Ekonomi',
-    imageSrc: 'https://images.pexels.com/photos/34072323/pexels-photo-34072323.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    title: 'Takbir Keliling',
+    description: 'Suasana khusyuk malam takbiran mengelilingi dusun Nglaran menyambut hari kemenangan.',
+    meta: 'Keagamaan',
+    imageSrc: imgTakbir,
   },
 ]

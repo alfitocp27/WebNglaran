@@ -21,7 +21,7 @@ export interface ActivityItem {
   title: string
   description: string
   schedule: string
-  image?: string
+  images?: string[]
 }
 
 export interface UmkmItem {

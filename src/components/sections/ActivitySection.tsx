@@ -96,7 +96,7 @@ export default function ActivitySection() {
                     title={item.title}
                     description={item.description}
                     schedule={item.schedule}
-                    image={item.image}
+                    images={item.images}
                   />
                 ))}
               </div>
