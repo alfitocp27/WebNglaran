@@ -5,18 +5,18 @@ export default function PotentialSection() {
   return (
     <section
       id="potensi"
-      className="py-24 lg:py-32 px-6 lg:px-12 xl:px-32 bg-zinc-50/50 dark:bg-zinc-900/50 border-b border-zinc-100 dark:border-zinc-800"
+      className="py-16 md:py-24 lg:py-32 px-5 sm:px-6 lg:px-12 xl:px-32 bg-zinc-50/50 dark:bg-zinc-900/50 border-b border-zinc-100 dark:border-zinc-800"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="mb-16">
+        <div className="mb-12 md:mb-16">
           <span className="text-zinc-400 dark:text-zinc-500 uppercase tracking-widest text-xs font-bold mb-4 block">
             Potensi Dusun
           </span>
-          <div className="space-y-[-5px]">
-            <h2 className="reveal-header font-bold uppercase text-4xl lg:text-5xl leading-none tracking-tighter text-zinc-900 dark:text-zinc-100">
+          <div className="space-y-[-3px] md:space-y-[-5px]">
+            <h2 className="reveal-header font-bold uppercase text-3xl md:text-4xl lg:text-5xl leading-none tracking-tighter text-zinc-900 dark:text-zinc-100">
               Kekayaan Alam
             </h2>
-            <h2 className="reveal-header font-serif italic text-4xl lg:text-5xl leading-none tracking-tight text-zinc-900 dark:text-zinc-100">
+            <h2 className="reveal-header font-serif italic text-3xl md:text-4xl lg:text-5xl leading-none tracking-tight text-zinc-900 dark:text-zinc-100">
               yang terus dirawat.
             </h2>
           </div>
@@ -78,10 +78,10 @@ export default function PotentialSection() {
                   <h3
                     className={`${
                       item.isDark
-                        ? 'font-bold text-2xl tracking-tighter uppercase'
+                        ? 'font-bold text-xl md:text-2xl tracking-tighter uppercase'
                         : item.isAccent
-                          ? 'font-serif italic text-2xl'
-                          : 'font-serif italic text-3xl text-zinc-900 dark:text-zinc-100'
+                          ? 'font-serif italic text-xl md:text-2xl'
+                          : 'font-serif italic text-2xl md:text-3xl text-zinc-900 dark:text-zinc-100'
                     } mb-4 ${item.isAccent ? 'text-white' : ''}`}
                   >
                     {item.title}

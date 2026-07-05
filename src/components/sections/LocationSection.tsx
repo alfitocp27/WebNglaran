@@ -4,14 +4,14 @@ export default function LocationSection() {
   return (
     <section
       id="lokasi"
-      className="py-24 lg:py-32 px-6 lg:px-12 xl:px-32 bg-bg-base relative"
+      className="py-16 md:py-24 lg:py-32 px-5 sm:px-6 lg:px-12 xl:px-32 bg-bg-base relative"
     >
       <div className="max-w-7xl mx-auto flex flex-col items-center">
-        <div className="space-y-[-5px] mb-6 text-center">
-          <h2 className="reveal-header font-bold uppercase text-4xl lg:text-5xl leading-none tracking-tighter text-zinc-900 dark:text-zinc-100">
+        <div className="space-y-[-3px] md:space-y-[-5px] mb-6 text-center">
+          <h2 className="reveal-header font-bold uppercase text-3xl md:text-4xl lg:text-5xl leading-none tracking-tighter text-zinc-900 dark:text-zinc-100">
             Temukan
           </h2>
-          <h2 className="reveal-header font-serif italic text-4xl lg:text-5xl leading-none tracking-tight text-zinc-900 dark:text-zinc-100">
+          <h2 className="reveal-header font-serif italic text-3xl md:text-4xl lg:text-5xl leading-none tracking-tight text-zinc-900 dark:text-zinc-100">
             Kami.
           </h2>
         </div>
