@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-const DEFAULT_CENTER: [number, number] = [-7.7956, 110.3695]
+const DEFAULT_CENTER: [number, number] = [-7.889710, 110.580917]
 const DEFAULT_ZOOM = 15
 
 export default function InteractiveMap() {
@@ -24,9 +24,9 @@ export default function InteractiveMap() {
 
       L.control.zoom({ position: 'bottomright' }).addTo(map)
 
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-        maxZoom: 19,
+      L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: '&copy; <a href="https://www.esri.com/">Esri</a>',
+        maxZoom: 17,
       }).addTo(map)
 
       const icon = L.divIcon({
@@ -39,12 +39,15 @@ export default function InteractiveMap() {
         popupAnchor: [0, -32],
       })
 
+      const gmapsUrl = `https://www.google.com/maps?q=${DEFAULT_CENTER[0]},${DEFAULT_CENTER[1]}`
+
       L.marker(DEFAULT_CENTER, { icon })
         .addTo(map)
         .bindPopup(
           `<div style="font-family:Inter,sans-serif;padding:4px 0;">
-            <strong style="font-size:14px;">Balai Padukuhan Nglaran</strong><br/>
-            <span style="font-size:12px;color:#71717a;">Jl. Tentram No. 12, DIY</span>
+            <strong style="font-size:14px;">Pendopo Dukuh Nglaran</strong><br/>
+            <span style="font-size:12px;color:#71717a;">Nglaran, RT.03/RW.11, Ngalang, Gedang Sari, Gunungkidul</span><br/>
+            <a href="${gmapsUrl}" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;padding:6px 12px;background:#A8BA9A;color:white;border-radius:6px;font-size:12px;font-weight:600;text-decoration:none;">Buka di Google Maps</a>
           </div>`,
         )
         .openPopup()

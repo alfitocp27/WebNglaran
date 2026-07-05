@@ -3,7 +3,7 @@ import type { PotentialItem } from '../types/content'
 export const potentials: PotentialItem[] = [
   {
     title: 'Pertanian',
-    description: 'Desa Nglaran memiliki hamparan sawah yang luas sebagai sumber penghidupan utama warga, menghasilkan padi dan palawija berkualitas.',
+    description: 'Dukuh Nglaran memiliki hamparan sawah yang luas sebagai sumber penghidupan utama warga, menghasilkan padi dan palawija berkualitas.',
     colSpan: 'lg:col-span-2',
   },
   {
@@ -13,12 +13,12 @@ export const potentials: PotentialItem[] = [
   },
   {
     title: 'Peternakan',
-    description: 'Banyak warga yang mengembangkan usaha peternakan seperti sapi, kambing, dan ternak lainnya sebagai penopang ekonomi desa.',
+    description: 'Banyak warga yang mengembangkan usaha peternakan seperti sapi, kambing, dan ternak lainnya sebagai penopang ekonomi dukuh.',
     isAccent: true,
   },
   {
     title: 'Budaya & Kesenian',
-    description: 'Desa Nglaran kaya akan kesenian tradisional seperti karawitan dan jatilan, terus dilestarikan dan dipertunjukkan dalam berbagai acara adat.',
+    description: 'Dukuh Nglaran kaya akan kesenian tradisional seperti karawitan dan jatilan, terus dilestarikan dan dipertunjukkan dalam berbagai acara adat.',
     colSpan: 'lg:col-span-2',
   },
 ]

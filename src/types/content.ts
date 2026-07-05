@@ -49,6 +49,5 @@ export interface ContactInfo {
   phone: string
   social: {
     instagram?: string
-    youtube?: string
   }
 }

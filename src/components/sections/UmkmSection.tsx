@@ -24,7 +24,7 @@ export default function UmkmSection() {
           </div>
           <p className="text-zinc-500 dark:text-zinc-400 max-w-sm text-xs leading-relaxed">
             Menghadirkan produk berkualitas dari tangan-tangan terampil warga Padukuhan Nglaran,
-            memajukan perekonomian desa.
+            memajukan perekonomian dukuh.
           </p>
         </div>
 

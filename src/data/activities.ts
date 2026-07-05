@@ -18,7 +18,7 @@ export const activities: ActivityItem[] = [
   },
   {
     title: 'Pertemuan Lembaga Dusun',
-    description: 'Musyawarah lembaga dusun membahas perencanaan dan koordinasi program desa.',
+    description: 'Musyawarah lembaga dusun membahas perencanaan dan koordinasi program dukuh.',
     schedule: 'Sebulan sekali, Malam Senin Pahing',
     images: ['https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2670&auto=format&fit=crop'],
   },

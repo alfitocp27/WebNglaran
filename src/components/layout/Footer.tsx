@@ -1,4 +1,4 @@
-import { Mail, Phone, Play } from 'lucide-react'
+import { Phone } from 'lucide-react'
 import { contactInfo } from '@/src/data/contact'
 
 export default function Footer() {
@@ -17,7 +17,7 @@ export default function Footer() {
               Terhubung.
             </h2>
             <p className="text-zinc-400 text-sm md:text-base max-w-sm leading-relaxed font-light">
-              Kunjungi Balai Padukuhan Nglaran atau hubungi kami secara digital. Kami selalu
+              Kunjungi Pendopo Dukuh Nglaran atau hubungi kami secara digital. Kami selalu
               terbuka untuk kolaborasi dan silaturahmi.
             </p>
           </div>
@@ -25,7 +25,7 @@ export default function Footer() {
           <div className="lg:w-2/5 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-8 pt-4">
             <div>
               <h4 className="text-xs uppercase tracking-widest font-bold text-zinc-600 mb-6 border-b border-zinc-800 pb-2">
-                Kantor Padukuhan
+                Pendopo Dukuh Nglaran
               </h4>
               <ul className="space-y-3 text-zinc-300 text-sm">
                 {contactInfo.address.map((line) => (
@@ -41,15 +41,6 @@ export default function Footer() {
               <ul className="space-y-4 text-zinc-300 text-sm">
                 <li>
                   <a
-                    href={`mailto:${contactInfo.email}`}
-                    className="hover:text-white transition-colors font-medium flex items-center gap-2 py-2 min-h-[44px]"
-                  >
-                    <Mail className="w-4 h-4" aria-hidden="true" />
-                    {contactInfo.email}
-                  </a>
-                </li>
-                <li>
-                  <a
                     href={`tel:${contactInfo.phone}`}
                     className="hover:text-white transition-colors flex items-center gap-2 py-2 min-h-[44px]"
                   >
@@ -57,7 +48,7 @@ export default function Footer() {
                     {contactInfo.phone}
                   </a>
                 </li>
-                <li className="pt-2 flex flex-col gap-4">
+                <li className="pt-2">
                   <a
                     href={contactInfo.social.instagram}
                     className="flex items-center gap-2 hover:text-white transition-colors group text-zinc-500 text-xs font-bold uppercase tracking-widest"
@@ -68,13 +59,6 @@ export default function Footer() {
                       <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
                     </svg>
                     Instagram
-                  </a>
-                  <a
-                    href={contactInfo.social.youtube}
-                    className="flex items-center gap-2 hover:text-white transition-colors group text-zinc-500 text-xs font-bold uppercase tracking-widest"
-                  >
-                    <Play className="w-4 h-4 text-zinc-500 group-hover:text-white transition-colors" aria-hidden="true" />
-                    YouTube
                   </a>
                 </li>
               </ul>

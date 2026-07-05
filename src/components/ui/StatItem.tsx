@@ -10,14 +10,15 @@ interface StatItemProps {
 }
 
 function parseNumber(val: string): number {
-  return parseInt(val.replace(/,/g, ''), 10)
+  return parseInt(val.replace(/[±,]/g, ''), 10)
 }
 
 function formatNumber(n: number, original: string): string {
+  const prefix = original.startsWith('±') ? '±' : ''
   if (original.includes(',')) {
-    return n.toLocaleString('id-ID')
+    return prefix + n.toLocaleString('id-ID')
   }
-  return String(n)
+  return prefix + String(n)
 }
 
 export default function StatItem({ value, label }: StatItemProps) {

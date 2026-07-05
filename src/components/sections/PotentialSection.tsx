@@ -54,7 +54,7 @@ export default function PotentialSection() {
                       : i === 1
                         ? 'Sumber Daya'
                         : i === 2
-                          ? 'Inovasi'
+                          ? 'PETERNAKAN'
                           : 'Warisan Nusantara'}
                   </span>
                   {Icon && (

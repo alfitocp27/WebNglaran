@@ -17,7 +17,7 @@ export const galleryItems: GalleryItem[] = [
   {
     id: 2,
     title: 'Nglaran Cup 2023',
-    description: 'Kemeriahan Nglaran Cup edisi keempat yang mempertemukan para talenta muda desa.',
+    description: 'Kemeriahan Nglaran Cup edisi keempat yang mempertemukan para talenta muda dukuh.',
     meta: 'Turnamen',
     imageSrc: imgCup2023,
   },

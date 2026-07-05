@@ -2,15 +2,14 @@ import type { ContactInfo } from '../types/content'
 
 export const contactInfo: ContactInfo = {
   address: [
-    'Balai Padukuhan Nglaran',
-    'Jalan Tentram No. 12',
-    'Daerah Istimewa Yogyakarta',
-    'Indonesia, 55000',
+    'Pendopo Dukuh Nglaran, Nglaran,',
+    'RT.03/RW.11, Ngalang,',
+    'Kec. Gedang Sari, Kabupaten Gunungkidul,',
+    'Daerah Istimewa Yogyakarta 55863',
   ],
-  email: 'sekretariat@nglaran.desa.id',
+  email: '',
   phone: '+62 811 2345 678',
   social: {
-    instagram: '#',
-    youtube: '#',
+    instagram: 'https://www.instagram.com/kimpadukuhannglaran?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
   },
 }

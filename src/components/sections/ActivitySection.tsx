@@ -59,7 +59,7 @@ export default function ActivitySection() {
         <div className="flex items-end justify-between mb-12 md:mb-16">
           <div>
             <span className="text-zinc-400 dark:text-zinc-500 uppercase tracking-widest text-xs font-bold mb-4 block">
-              Agenda Desa
+              Agenda Dukuh
             </span>
             <div className="space-y-[-3px] md:space-y-[-5px]">
               <h2 className="reveal-header font-bold uppercase text-3xl md:text-4xl lg:text-5xl leading-none tracking-tighter text-zinc-900 dark:text-zinc-100">

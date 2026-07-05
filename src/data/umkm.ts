@@ -40,7 +40,7 @@ export const umkmList: UmkmItem[] = [
   {
     title: 'Madu Hutan Asli',
     category: 'Kesehatan',
-    description: 'Madu hutan alami yang dipanen langsung oleh peternak lebah lokal desa Nglaran.',
+    description: 'Madu hutan alami yang dipanen langsung oleh peternak lebah lokal dukuh Nglaran.',
     imageUrl: 'https://images.unsplash.com/photo-1587049352847-ecdfdd876cb7?q=80&w=2680&auto=format&fit=crop',
     whatsapp: 'https://wa.me/6281234567890',
     location: 'RT 03',

@@ -37,7 +37,6 @@ export default function HeroSection() {
 
       <div className="hero-text relative z-20 max-w-4xl pt-24 md:pt-32">
         <div className="flex items-center gap-3 mb-6 md:mb-8">
-          <span className="h-[1px] w-8 md:w-12 bg-white" />
           <span className="text-white text-[10px] md:text-xs tracking-[0.3em] uppercase font-bold">
             Selamat Datang
           </span>
@@ -62,7 +61,7 @@ export default function HeroSection() {
             href="#profil"
             className="group flex items-center justify-center gap-3 bg-white text-zinc-900 px-7 md:px-8 py-3.5 md:py-4 rounded-full text-[10px] md:text-xs uppercase tracking-widest font-bold transition-all hover:bg-zinc-200 w-full sm:w-auto"
           >
-            Jelajahi Desa
+            Jelajahi Dukuh
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
         </div>
