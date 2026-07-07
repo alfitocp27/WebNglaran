@@ -1,7 +1,22 @@
 import StatItem from '@/src/components/ui/StatItem'
 import { stats, profileDescription } from '@/src/data/profile'
+import { useDashboardData } from '@/src/hooks/useDashboardData'
 
 export default function ProfileSection() {
+  const { data } = useDashboardData();
+
+  const displayStats = stats.map(stat => {
+    if (stat.label === 'Penduduk' && data?.summary) {
+      return { ...stat, value: `±${data.summary.total_penduduk.toLocaleString('id-ID')}` };
+    }
+    if (stat.label === 'Rukun Warga (RW)' && data?.summary) {
+      return { ...stat, value: data.summary.total_rw.toLocaleString('id-ID') };
+    }
+    if (stat.label === 'Rukun Tetangga' && data?.summary) {
+      return { ...stat, value: data.summary.total_rt.toLocaleString('id-ID') };
+    }
+    return stat;
+  });
   return (
     <section
       id="profil"
@@ -27,7 +42,7 @@ export default function ProfileSection() {
         </div>
 
         <div className="lg:w-1/2 w-full pt-8 lg:pt-0 stats-container parallax-stats grid grid-cols-2 gap-x-8 gap-y-12">
-          {stats.map((stat) => (
+          {displayStats.map((stat) => (
             <StatItem key={stat.label} value={stat.value} label={stat.label} />
           ))}
         </div>

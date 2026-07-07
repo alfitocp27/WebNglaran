@@ -8,6 +8,7 @@ import Navbar from '@/src/components/layout/Navbar'
 import Footer from '@/src/components/layout/Footer'
 import HeroSection from '@/src/components/sections/HeroSection'
 import ProfileSection from '@/src/components/sections/ProfileSection'
+import StatistikPadukuhan from '@/src/components/statistik/StatistikPadukuhan'
 import PotentialSection from '@/src/components/sections/PotentialSection'
 import ActivitySection from '@/src/components/sections/ActivitySection'
 import GallerySection from '@/src/components/sections/GallerySection'
@@ -190,6 +191,7 @@ export default function HomePage() {
       <main>
         <HeroSection />
         <ProfileSection />
+        <StatistikPadukuhan />
         <PotentialSection />
         <ActivitySection />
         <GallerySection />
