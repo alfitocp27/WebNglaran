@@ -80,7 +80,7 @@ export default function StatistikPadukuhan() {
           </div>
           <div className="stagger-card h-full">
             <ChartCard title="Rentang Usia Warga">
-              <ResponsiveBarChart data={usia} layout="horizontal" fillColor="#4f81bd" sortData={false} showLabel={false} />
+              <ResponsiveBarChart data={usia} layout="horizontal" fillColor="#4f81bd" sortData={false} showLabel={true} angleXAxis={true} customMargin={{ top: 15, right: 30, left: 0, bottom: 15 }} minWidth="min-w-0" />
             </ChartCard>
           </div>
           <div className="stagger-card h-full">

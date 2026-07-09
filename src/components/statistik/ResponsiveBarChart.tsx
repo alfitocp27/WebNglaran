@@ -21,6 +21,7 @@ interface ResponsiveBarChartProps {
   sortData?: boolean;
   showLabel?: boolean;
   minWidth?: string;
+  customMargin?: { top: number; right: number; left: number; bottom: number };
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -45,7 +46,8 @@ export default function ResponsiveBarChart({
   angleXAxis = false, 
   sortData = true, 
   showLabel = true,
-  minWidth
+  minWidth,
+  customMargin
 }: ResponsiveBarChartProps) {
   // Sort data descending by value for better visual presentation, unless sortData is false
   const sortedData = sortData ? [...data].sort((a, b) => b.value - a.value) : data;
@@ -58,7 +60,7 @@ export default function ResponsiveBarChart({
         <BarChart
         data={sortedData}
         layout={layout}
-        margin={{ 
+        margin={customMargin || { 
           top: 15, 
           right: layout === 'vertical' ? 40 : 30, 
           left: 0, 
