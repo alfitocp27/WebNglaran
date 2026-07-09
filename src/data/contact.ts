@@ -8,7 +8,7 @@ export const contactInfo: ContactInfo = {
     'Daerah Istimewa Yogyakarta 55863',
   ],
   email: '',
-  phone: '+62 811 2345 678',
+  phone: '62 813-9454-6389',
   social: {
     instagram: 'https://www.instagram.com/kimpadukuhannglaran?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
   },

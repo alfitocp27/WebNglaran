@@ -30,6 +30,10 @@ export function fetchDashboardData(): Promise<DashboardData> {
         throw new Error("Format data dashboard tidak valid.");
       }
 
+      if (data.success === false) {
+        throw new Error("Response dashboard tidak valid");
+      }
+
       return data as DashboardData;
     } finally {
       fetchPromise = null;

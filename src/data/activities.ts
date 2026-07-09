@@ -1,20 +1,28 @@
 import type { ActivityItem } from '../types/content'
 
 import imgGejogLesung from '../assets/kegiatan/kegiatan-gejog lesung.jpeg'
+import imgGejogLesung2 from '../assets/kegiatan/kegiatan-gejog lesung 2.jpeg'
+import imgGejogLesung3 from '../assets/kegiatan/kegiatan-gejog lesung 3.jpeg'
 import imgJatilan from '../assets/kegiatan/kegiatan-jatilan.jpeg'
 import imgJatilan2 from '../assets/kegiatan/kegiatan-jatilan2.jpeg'
 import imgJatilan3 from '../assets/kegiatan/kegiatan-jatilan3.jpeg'
 import imgJatilan4 from '../assets/kegiatan/kegiatan-jatilan4.jpeg'
 import imgKarawitan from '../assets/kegiatan/kegiatan-karawitan.jpeg'
+import imgKelompokTani from '../assets/kegiatan/kegiatan-kelompok tani.jpeg'
+import imgKelompokTani2 from '../assets/kegiatan/kegiatan-kelompok tani 2.jpeg'
 import imgPkk from '../assets/kegiatan/kegiatan-pkk.jpeg'
 import imgPosyandu from '../assets/kegiatan/kegiatan-posyandu.jpeg'
+import imgSenam from '../assets/kegiatan/kegiatan-senam ibu.jpeg'
+import imgPertemuanWarga from '../assets/kegiatan/kegiatan-pertemuan warga.jpeg'
+import imgPertemuanWarga2 from '../assets/kegiatan/kegiatan-pertemuan warga 2.jpeg'
+import imgPertemuanWarga3 from '../assets/kegiatan/kegiatan-pertemuan warga 3.jpeg'
 
 export const activities: ActivityItem[] = [
   {
     title: 'Pertemuan Warga',
     description: 'Pertemuan rutin warga untuk membahas perkembangan dan musyawarah dusun.',
     schedule: 'Sebulan sekali per RT',
-    images: ['https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=2670&auto=format&fit=crop'],
+    images: [imgPertemuanWarga, imgPertemuanWarga2, imgPertemuanWarga3],
   },
   {
     title: 'Pertemuan Lembaga Dusun',
@@ -32,7 +40,7 @@ export const activities: ActivityItem[] = [
     title: 'Kelompok Tani Bugel',
     description: 'Pertemuan kelompok tani untuk membahas pertanian, pupuk, dan musim tanam.',
     schedule: 'Sebulan sekali, Senin Wage',
-    images: ['https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=2670&auto=format&fit=crop'],
+    images: [imgKelompokTani, imgKelompokTani2],
   },
   {
     title: 'Kelompok Wanita Tani',
@@ -80,12 +88,12 @@ export const activities: ActivityItem[] = [
     title: 'Senam Ibu-ibu',
     description: 'Kegiatan senam pagi untuk menjaga kebugaran dan kesehatan ibu-ibu dusun.',
     schedule: 'Setiap hari Sabtu',
-    images: ['https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2670&auto=format&fit=crop'],
+    images: [imgSenam],
   },
   {
     title: 'Gejog Lesung',
     description: 'Kesenian tradisional gejog lesung yang dimainkan oleh ibu-ibu sebagai pelestarian budaya.',
     schedule: 'Sesuai jadwal',
-    images: [imgGejogLesung],
+    images: [imgGejogLesung, imgGejogLesung2, imgGejogLesung3],
   },
 ]

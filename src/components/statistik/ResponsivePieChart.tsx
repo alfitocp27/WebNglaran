@@ -1,5 +1,6 @@
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
 import type { ChartDataItem } from '../../types/dashboard';
+import { formatNumber } from '../../lib/format';
 
 interface ResponsivePieChartProps {
   data: ChartDataItem[];
@@ -25,7 +26,7 @@ const CustomTooltip = ({ active, payload }: any) => {
       <div className="bg-white dark:bg-zinc-800 p-3 rounded-xl shadow-lg border border-zinc-200 dark:border-zinc-700 text-sm">
         <p className="font-bold text-zinc-800 dark:text-zinc-200 mb-1">{payload[0].name}</p>
         <p className="text-zinc-600 dark:text-zinc-400">
-          Jumlah: <span className="font-semibold text-zinc-900 dark:text-white">{payload[0].value}</span>
+          Jumlah: <span className="font-semibold text-zinc-900 dark:text-white">{formatNumber(payload[0].value)}</span>
         </p>
       </div>
     );
@@ -46,7 +47,7 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 
   return (
     <text x={x} y={y} fill="#18181b" textAnchor="middle" dominantBaseline="central" className="text-xs font-semibold drop-shadow-md">
-      {`${value} (${(percent * 100).toFixed(1)}%)`}
+      {`${formatNumber(value)} (${(percent * 100).toFixed(1)}%)`}
     </text>
   );
 };

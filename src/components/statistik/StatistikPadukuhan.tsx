@@ -4,6 +4,7 @@ import ChartCard from './ChartCard';
 import ResponsiveBarChart from './ResponsiveBarChart';
 import ResponsivePieChart from './ResponsivePieChart';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { formatUpdatedAt } from '../../lib/format';
 
 export default function StatistikPadukuhan() {
   const { data, loading, error } = useDashboardData(60000);
@@ -35,7 +36,7 @@ export default function StatistikPadukuhan() {
         <div className="max-w-6xl mx-auto flex flex-col items-center justify-center min-h-[400px]">
           <div className="bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 p-6 rounded-2xl max-w-md text-center border border-red-100 dark:border-red-900/50">
             <p className="font-bold mb-2">Gagal Memuat Data</p>
-            <p className="text-sm opacity-80">{error}</p>
+            <p className="text-sm opacity-80">Data statistik belum bisa dimuat.</p>
           </div>
         </div>
       </section>
@@ -48,20 +49,9 @@ export default function StatistikPadukuhan() {
 
   const pendidikan = data.charts.pendidikan ?? [];
   const pekerjaan = data.charts.pekerjaan ?? [];
-  const rt = data.charts.rt ?? [];
-  const rw = data.charts.rw ?? [];
-  const summary = data.summary;
-
-  // Gabung data RT dengan Total RW untuk grafik Data RW (RT)
-  const dataRT = [...rt, { label: 'Total Keseluruhan', value: rw[0]?.value || summary.total_penduduk }];
-
-  const dateStr = new Date(data.updatedAt).toLocaleDateString('id-ID', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit'
-  });
+  const rt = (data.charts.rt ?? []).filter(item => !item.label.toLowerCase().includes('total'));
+  const usia = data.charts.usia ?? [];
+  const shdk = data.charts.shdk ?? [];
 
   console.log("StatistikPadukuhan rendering data:", data);
 
@@ -82,15 +72,20 @@ export default function StatistikPadukuhan() {
 
 
         {/* Charts Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 stagger-container">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 stagger-container">
           <div className="stagger-card h-full">
             <ChartCard title="Pendidikan Warga Padukuhan Nglaran">
               <ResponsivePieChart data={pendidikan} />
             </ChartCard>
           </div>
           <div className="stagger-card h-full">
+            <ChartCard title="Rentang Usia Warga">
+              <ResponsiveBarChart data={usia} layout="horizontal" fillColor="#4f81bd" sortData={false} showLabel={false} />
+            </ChartCard>
+          </div>
+          <div className="stagger-card h-full">
             <ChartCard title="Data RW Padukuhan Nglaran">
-              <ResponsiveBarChart data={dataRT} layout="horizontal" fillColor="#f8c8c8" />
+              <ResponsiveBarChart data={rt} layout="horizontal" fillColor="#f8c8c8" sortData={false} />
             </ChartCard>
           </div>
           <div className="stagger-card lg:col-span-2 h-full">
@@ -98,10 +93,15 @@ export default function StatistikPadukuhan() {
               <ResponsiveBarChart data={pekerjaan} layout="horizontal" fillColor="#e5d5ba" angleXAxis={true} />
             </ChartCard>
           </div>
+          <div className="stagger-card h-full">
+            <ChartCard title="SHDK Warga">
+              <ResponsiveBarChart data={shdk} layout="horizontal" fillColor="#c4b5fd" angleXAxis={true} />
+            </ChartCard>
+          </div>
         </div>
 
         <div className="text-center text-xs text-zinc-500 dark:text-zinc-500 uppercase tracking-widest reveal-header">
-          Terakhir diperbarui: {dateStr} WIB
+          {formatUpdatedAt(data.updatedAt)}
         </div>
       </div>
     </section>

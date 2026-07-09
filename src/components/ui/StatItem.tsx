@@ -10,12 +10,12 @@ interface StatItemProps {
 }
 
 function parseNumber(val: string): number {
-  return parseInt(val.replace(/[±,]/g, ''), 10)
+  return parseInt(val.replace(/[±,.]/g, ''), 10) || 0
 }
 
 function formatNumber(n: number, original: string): string {
   const prefix = original.startsWith('±') ? '±' : ''
-  if (original.includes(',')) {
+  if (original.includes('.') || original.includes(',')) {
     return prefix + n.toLocaleString('id-ID')
   }
   return prefix + String(n)
@@ -24,10 +24,25 @@ function formatNumber(n: number, original: string): string {
 export default function StatItem({ value, label }: StatItemProps) {
   const ref = useRef<HTMLDivElement>(null)
   const [display, setDisplay] = useState('0')
+  const hasAnimated = useRef(false)
   const target = parseNumber(value)
 
   useEffect(() => {
     if (!ref.current || target === 0) return
+
+    if (hasAnimated.current) {
+      const currentVal = parseNumber(display)
+      const obj = { val: currentVal }
+      gsap.to(obj, {
+        val: target,
+        duration: 1,
+        ease: 'power2.out',
+        onUpdate: () => {
+          setDisplay(formatNumber(Math.round(obj.val), value))
+        },
+      })
+      return
+    }
 
     const obj = { val: 0 }
     const trigger = ScrollTrigger.create({
@@ -35,6 +50,7 @@ export default function StatItem({ value, label }: StatItemProps) {
       start: 'top 85%',
       once: true,
       onEnter: () => {
+        hasAnimated.current = true
         gsap.to(obj, {
           val: target,
           duration: 1.5,
@@ -49,7 +65,7 @@ export default function StatItem({ value, label }: StatItemProps) {
     return () => {
       trigger.kill()
     }
-  }, [target, value])
+  }, [target, value]) // eslint-disable-next-line react-hooks/exhaustive-deps
 
   return (
     <div ref={ref} className="stat-item flex flex-col gap-2 border-t border-zinc-200 dark:border-zinc-700 pt-6">

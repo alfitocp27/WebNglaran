@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState, useMemo } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import type { ActivityItem } from '@/src/types/content'
 
@@ -9,7 +9,7 @@ interface ActivityCardProps extends ActivityItem {
 const FALLBACK_IMG = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300" fill="%23e4e4e7"%3E%3Crect width="400" height="300"/%3E%3Ctext x="50%25" y="50%25" fill="%2371717a" font-size="14" text-anchor="middle" dy=".3em"%3EGambar tidak tersedia%3C/text%3E%3C/svg%3E'
 
 export default function ActivityCard({ title, description, schedule, images, className = '' }: ActivityCardProps) {
-  const allImages = images && images.length > 0 ? images : [FALLBACK_IMG]
+  const allImages = useMemo(() => (images && images.length > 0 ? images : [FALLBACK_IMG]), [images])
   const hasSlideshow = allImages.length > 1
 
   const [currentIdx, setCurrentIdx] = useState(0)

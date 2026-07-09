@@ -11,12 +11,15 @@ import {
   LabelList
 } from 'recharts';
 import type { ChartDataItem } from '../../types/dashboard';
+import { shortenLabel, formatNumber } from '../../lib/format';
 
 interface ResponsiveBarChartProps {
   data: ChartDataItem[];
   layout?: 'horizontal' | 'vertical';
   fillColor?: string;
   angleXAxis?: boolean;
+  sortData?: boolean;
+  showLabel?: boolean;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -26,7 +29,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
       <div className="bg-white dark:bg-zinc-800 p-3 rounded-xl shadow-lg border border-zinc-200 dark:border-zinc-700 text-sm">
         <p className="font-bold text-zinc-800 dark:text-zinc-200 mb-1">{label}</p>
         <p className="text-zinc-600 dark:text-zinc-400">
-          Jumlah: <span className="font-semibold text-zinc-900 dark:text-white">{payload[0].value}</span>
+          Jumlah: <span className="font-semibold text-zinc-900 dark:text-white">{formatNumber(payload[0].value)}</span>
         </p>
       </div>
     );
@@ -34,9 +37,9 @@ const CustomTooltip = ({ active, payload, label }: any) => {
   return null;
 };
 
-export default function ResponsiveBarChart({ data, layout = 'horizontal', fillColor = '#3f3f46', angleXAxis = false }: ResponsiveBarChartProps) {
-  // Sort data descending by value for better visual presentation, but if angleXAxis is true, maybe keep original order if it's RT
-  const sortedData = angleXAxis ? data : [...data].sort((a, b) => b.value - a.value);
+export default function ResponsiveBarChart({ data, layout = 'horizontal', fillColor = '#3f3f46', angleXAxis = false, sortData = true, showLabel = true }: ResponsiveBarChartProps) {
+  // Sort data descending by value for better visual presentation, unless sortData is false
+  const sortedData = sortData ? [...data].sort((a, b) => b.value - a.value) : data;
 
   return (
     <div className={`w-full h-full ${angleXAxis ? 'min-w-[700px]' : 'min-w-[400px]'} text-zinc-800 dark:text-zinc-200`}>
@@ -57,11 +60,13 @@ export default function ResponsiveBarChart({ data, layout = 'horizontal', fillCo
               interval={0}
               angle={angleXAxis ? -45 : 0}
               textAnchor={angleXAxis ? 'end' : 'middle'}
+              tickFormatter={(val) => shortenLabel(val)}
             />
             <YAxis 
               tick={{ fontSize: 12, fill: 'currentColor' }} 
               axisLine={false} 
               tickLine={false} 
+              tickFormatter={(val) => formatNumber(val)}
             />
           </>
         ) : (
@@ -71,6 +76,7 @@ export default function ResponsiveBarChart({ data, layout = 'horizontal', fillCo
               tick={{ fontSize: 12, fill: 'currentColor' }} 
               axisLine={false} 
               tickLine={false} 
+              tickFormatter={(val) => formatNumber(val)}
             />
             <YAxis 
               dataKey="label" 
@@ -79,12 +85,21 @@ export default function ResponsiveBarChart({ data, layout = 'horizontal', fillCo
               axisLine={false} 
               tickLine={false} 
               width={90}
+              tickFormatter={(val) => shortenLabel(val)}
             />
           </>
         )}
         <Tooltip content={<CustomTooltip />} cursor={{ fill: 'transparent' }} />
         <Bar dataKey="value" radius={[4, 4, 4, 4]}>
-          <LabelList dataKey="value" position={layout === 'horizontal' ? 'top' : 'right'} style={{ fontSize: '11px', fontWeight: 'bold', fill: 'currentColor' }} />
+          {showLabel && (
+            <LabelList 
+              dataKey="value" 
+              position={layout === 'horizontal' ? 'top' : 'right'} 
+              style={{ fontSize: '11px', fontWeight: 'bold', fill: 'currentColor' }} 
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              formatter={(val: any) => formatNumber(Number(val))}
+            />
+          )}
           {sortedData.map((_, index) => (
             <Cell key={`cell-${index}`} fill={fillColor} />
           ))}
