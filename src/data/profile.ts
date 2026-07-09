@@ -7,5 +7,5 @@ export const stats: ProfileStats[] = [
   { value: '0', label: 'Penduduk' },
   { value: '1', label: 'Rukun Warga (RW)' },
   { value: '5', label: 'Rukun Tetangga' },
-  { value: '45', label: 'UMKM Aktif' },
+  { value: '± 650.000 m²', label: 'Luas Wilayah' },
 ]

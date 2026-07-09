@@ -12,7 +12,7 @@ export default function ChartCard({ title, children }: ChartCardProps) {
       <h3 className="text-sm font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400 mb-6 text-center lg:text-left">
         {title}
       </h3>
-      <div className="w-full h-[320px] min-h-[320px] relative overflow-x-auto overflow-y-hidden scrollbar-hide">
+      <div className="w-full h-[320px] min-h-[320px] relative overflow-x-auto overflow-y-hidden mobile-scrollbar">
         {children}
       </div>
     </div>

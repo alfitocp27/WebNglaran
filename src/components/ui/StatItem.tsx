@@ -14,11 +14,15 @@ function parseNumber(val: string): number {
 }
 
 function formatNumber(n: number, original: string): string {
-  const prefix = original.startsWith('±') ? '±' : ''
+  const prefix = original.startsWith('± ') ? '± ' : (original.startsWith('±') ? '±' : '')
+  const suffixMatch = original.match(/[^0-9±.,]+$/)
+  const suffix = suffixMatch ? suffixMatch[0] : ''
+  
+  let formatted = String(n)
   if (original.includes('.') || original.includes(',')) {
-    return prefix + n.toLocaleString('id-ID')
+    formatted = n.toLocaleString('id-ID')
   }
-  return prefix + String(n)
+  return prefix + formatted + suffix
 }
 
 export default function StatItem({ value, label }: StatItemProps) {
@@ -69,7 +73,7 @@ export default function StatItem({ value, label }: StatItemProps) {
 
   return (
     <div ref={ref} className="stat-item flex flex-col gap-2 border-t border-zinc-200 dark:border-zinc-700 pt-6">
-      <div className="font-serif italic text-5xl lg:text-6xl font-light text-zinc-900 dark:text-zinc-100 leading-none">
+      <div className="font-serif italic text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-zinc-900 dark:text-zinc-100 leading-none whitespace-nowrap">
         {display}
       </div>
       <div className="text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400 font-medium mt-1">

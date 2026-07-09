@@ -31,11 +31,6 @@ export default function ProfileSection() {
       } else if (data?.charts?.rt) {
         val = data.charts.rt.filter(item => !item.label.toLowerCase().includes('total')).length;
       }
-    } else if (stat.label === 'UMKM Aktif') {
-      const apiUMKM = data?.summary?.total_umkm;
-      if (apiUMKM !== undefined && apiUMKM !== null && typeof apiUMKM === 'number' && !isNaN(apiUMKM)) {
-        val = apiUMKM;
-      }
     }
 
     if (val !== undefined) {
