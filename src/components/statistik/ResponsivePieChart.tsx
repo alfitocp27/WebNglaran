@@ -34,11 +34,10 @@ const CustomTooltip = ({ active, payload }: any) => {
   return null;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, value }: any) => {
   const RADIAN = Math.PI / 180;
-  // Position label slightly outside the center of the slice
-  const radius = innerRadius + (outerRadius - innerRadius) * 0.6;
+  // Position label slightly further out (55%) to give more horizontal room in narrower slices
+  const radius = innerRadius + (outerRadius - innerRadius) * 0.55;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
@@ -46,8 +45,9 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
   if (percent < 0.05) return null;
 
   return (
-    <text x={x} y={y} fill="#18181b" textAnchor="middle" dominantBaseline="central" className="text-xs font-semibold drop-shadow-md">
-      {`${formatNumber(value)} (${(percent * 100).toFixed(1)}%)`}
+    <text x={x} y={y} fill="#18181b" textAnchor="middle" dominantBaseline="central" className="text-[10px] font-bold drop-shadow-sm">
+      <tspan x={x} dy="-0.4em">{formatNumber(value)}</tspan>
+      <tspan x={x} dy="1.2em">{`(${(percent * 100).toFixed(1)}%)`}</tspan>
     </text>
   );
 };
