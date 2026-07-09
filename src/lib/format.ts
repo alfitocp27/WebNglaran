@@ -30,3 +30,11 @@ export const formatUpdatedAt = (dateStr?: string) => {
     return "Data diperbarui otomatis dari spreadsheet.";
   }
 };
+
+export const toTitleCase = (str: string) => {
+  return str
+    .toLowerCase()
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+};

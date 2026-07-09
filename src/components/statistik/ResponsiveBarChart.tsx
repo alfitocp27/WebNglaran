@@ -11,7 +11,7 @@ import {
   LabelList
 } from 'recharts';
 import type { ChartDataItem } from '../../types/dashboard';
-import { shortenLabel, formatNumber } from '../../lib/format';
+import { shortenLabel, formatNumber, toTitleCase } from '../../lib/format';
 
 interface ResponsiveBarChartProps {
   data: ChartDataItem[];
@@ -20,6 +20,7 @@ interface ResponsiveBarChartProps {
   angleXAxis?: boolean;
   sortData?: boolean;
   showLabel?: boolean;
+  minWidth?: string;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -37,19 +38,36 @@ const CustomTooltip = ({ active, payload, label }: any) => {
   return null;
 };
 
-export default function ResponsiveBarChart({ data, layout = 'horizontal', fillColor = '#3f3f46', angleXAxis = false, sortData = true, showLabel = true }: ResponsiveBarChartProps) {
+export default function ResponsiveBarChart({ 
+  data, 
+  layout = 'horizontal', 
+  fillColor = '#3f3f46', 
+  angleXAxis = false, 
+  sortData = true, 
+  showLabel = true,
+  minWidth
+}: ResponsiveBarChartProps) {
   // Sort data descending by value for better visual presentation, unless sortData is false
   const sortedData = sortData ? [...data].sort((a, b) => b.value - a.value) : data;
 
+  const minWidthClass = minWidth !== undefined ? minWidth : (angleXAxis ? 'min-w-[700px]' : 'min-w-[400px]');
+
   return (
-    <div className={`w-full h-full ${angleXAxis ? 'min-w-[700px]' : 'min-w-[400px]'} text-zinc-800 dark:text-zinc-200`}>
+    <div className={`w-full h-full ${minWidthClass} text-zinc-800 dark:text-zinc-200`}>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
         data={sortedData}
         layout={layout}
-        margin={{ top: 30, right: 30, left: layout === 'vertical' ? 100 : 0, bottom: angleXAxis ? 80 : 5 }}
+        margin={{ 
+          top: 15, 
+          right: layout === 'vertical' ? 40 : 30, 
+          left: 0, 
+          bottom: layout === 'vertical' ? 10 : (angleXAxis ? 80 : 5) 
+        }}
       >
-        <CartesianGrid strokeDasharray="3 3" vertical={layout === 'horizontal'} horizontal={layout === 'vertical'} stroke="#e4e4e7" opacity={0.5} />
+        {layout === 'horizontal' && (
+          <CartesianGrid strokeDasharray="3 3" vertical={true} horizontal={false} stroke="#e4e4e7" opacity={0.5} />
+        )}
         {layout === 'horizontal' ? (
           <>
             <XAxis 
@@ -73,24 +91,21 @@ export default function ResponsiveBarChart({ data, layout = 'horizontal', fillCo
           <>
             <XAxis 
               type="number" 
-              tick={{ fontSize: 12, fill: 'currentColor' }} 
-              axisLine={false} 
-              tickLine={false} 
-              tickFormatter={(val) => formatNumber(val)}
+              hide={true}
             />
             <YAxis 
               dataKey="label" 
               type="category" 
-              tick={{ fontSize: 12, fill: 'currentColor' }} 
+              tick={{ fontSize: 10, fill: 'currentColor' }} 
               axisLine={false} 
               tickLine={false} 
-              width={90}
-              tickFormatter={(val) => shortenLabel(val)}
+              width={110}
+              tickFormatter={(val) => toTitleCase(shortenLabel(val))}
             />
           </>
         )}
         <Tooltip content={<CustomTooltip />} cursor={{ fill: 'transparent' }} />
-        <Bar dataKey="value" radius={[4, 4, 4, 4]}>
+        <Bar dataKey="value" radius={layout === 'horizontal' ? [4, 4, 0, 0] : [0, 4, 4, 0]}>
           {showLabel && (
             <LabelList 
               dataKey="value" 

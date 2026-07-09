@@ -95,7 +95,7 @@ export default function StatistikPadukuhan() {
           </div>
           <div className="stagger-card h-full">
             <ChartCard title="SHDK Warga">
-              <ResponsiveBarChart data={shdk} layout="horizontal" fillColor="#c4b5fd" angleXAxis={true} />
+              <ResponsiveBarChart data={shdk} layout="vertical" fillColor="#c4b5fd" minWidth="min-w-0" />
             </ChartCard>
           </div>
         </div>
