@@ -1,7 +1,49 @@
 import StatItem from '@/src/components/ui/StatItem'
 import { stats, profileDescription } from '@/src/data/profile'
+import { useDashboardData } from '@/src/hooks/useDashboardData'
 
 export default function ProfileSection() {
+  const { data } = useDashboardData();
+
+  const displayStats = stats.map(stat => {
+    let val: number | undefined;
+
+    if (stat.label === 'Penduduk') {
+      const apiTotal = data?.summary?.total_penduduk;
+      if (apiTotal !== undefined && apiTotal !== null && typeof apiTotal === 'number' && !isNaN(apiTotal)) {
+        val = apiTotal;
+      } else if (data?.charts?.rt) {
+        val = data.charts.rt
+          .filter(item => !item.label.toLowerCase().includes('total'))
+          .reduce((acc, curr) => acc + curr.value, 0);
+      }
+    } else if (stat.label === 'Rukun Warga (RW)') {
+      const apiRW = data?.summary?.total_rw;
+      if (apiRW !== undefined && apiRW !== null && typeof apiRW === 'number' && !isNaN(apiRW)) {
+        val = apiRW;
+      } else if (data?.charts?.rw) {
+        val = data.charts.rw.filter(item => !item.label.toLowerCase().includes('total')).length;
+      }
+    } else if (stat.label === 'Rukun Tetangga') {
+      const apiRT = data?.summary?.total_rt;
+      if (apiRT !== undefined && apiRT !== null && typeof apiRT === 'number' && !isNaN(apiRT)) {
+        val = apiRT;
+      } else if (data?.charts?.rt) {
+        val = data.charts.rt.filter(item => !item.label.toLowerCase().includes('total')).length;
+      }
+    } else if (stat.label === 'UMKM Aktif') {
+      const apiUMKM = data?.summary?.total_umkm;
+      if (apiUMKM !== undefined && apiUMKM !== null && typeof apiUMKM === 'number' && !isNaN(apiUMKM)) {
+        val = apiUMKM;
+      }
+    }
+
+    if (val !== undefined) {
+      return { ...stat, value: val.toLocaleString('id-ID') };
+    }
+
+    return stat;
+  });
   return (
     <section
       id="profil"
@@ -27,7 +69,7 @@ export default function ProfileSection() {
         </div>
 
         <div className="lg:w-1/2 w-full pt-8 lg:pt-0 stats-container parallax-stats grid grid-cols-2 gap-x-8 gap-y-12">
-          {stats.map((stat) => (
+          {displayStats.map((stat) => (
             <StatItem key={stat.label} value={stat.value} label={stat.label} />
           ))}
         </div>

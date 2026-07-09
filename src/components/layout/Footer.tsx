@@ -41,7 +41,9 @@ export default function Footer() {
               <ul className="space-y-4 text-zinc-300 text-sm">
                 <li>
                   <a
-                    href={`tel:${contactInfo.phone}`}
+                    href={`https://wa.me/${contactInfo.phone.replace(/[^0-9]/g, '')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="hover:text-white transition-colors flex items-center gap-2 py-2 min-h-[44px]"
                   >
                     <Phone className="w-4 h-4" aria-hidden="true" />
