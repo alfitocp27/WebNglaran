@@ -13,22 +13,22 @@ import imgKelompokTani2 from '../assets/kegiatan/kegiatan-kelompok tani 2.jpeg'
 import imgPkk from '../assets/kegiatan/kegiatan-pkk.jpeg'
 import imgPosyandu from '../assets/kegiatan/kegiatan-posyandu.jpeg'
 import imgSenam from '../assets/kegiatan/kegiatan-senam ibu.jpeg'
-import imgPertemuanWarga from '../assets/kegiatan/kegiatan-pertemuan warga.jpeg'
-import imgPertemuanWarga2 from '../assets/kegiatan/kegiatan-pertemuan warga 2.jpeg'
-import imgPertemuanWarga3 from '../assets/kegiatan/kegiatan-pertemuan warga 3.jpeg'
+import imgPertemuanLembagaDusun from '../assets/kegiatan/kegiatan-pertemuan lembaga dusun.jpeg'
+import imgPertemuanLembagaDusun2 from '../assets/kegiatan/kegiatan-pertemuan lembaga dusun 2.jpeg'
+import imgPertemuanLembagaDusun3 from '../assets/kegiatan/kegiatan-pertemuan lembaga dusun 3.jpeg'
 
 export const activities: ActivityItem[] = [
   {
     title: 'Pertemuan Warga',
     description: 'Pertemuan rutin warga untuk membahas perkembangan dan musyawarah dusun.',
     schedule: 'Sebulan sekali per RT',
-    images: [imgPertemuanWarga, imgPertemuanWarga2, imgPertemuanWarga3],
+    images: ['https://img.magnific.com/foto-gratis/pemandangan-kabut-pagi-dan-pegunungan-dengan-balon-udara-panas-saat-matahari-terbit_335224-794.jpg?semt=ais_hybrid&w=740&q=80'],
   },
   {
     title: 'Pertemuan Lembaga Dusun',
     description: 'Musyawarah lembaga dusun membahas perencanaan dan koordinasi program dukuh.',
     schedule: 'Sebulan sekali, Malam Senin Pahing',
-    images: ['https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2670&auto=format&fit=crop'],
+    images: [imgPertemuanLembagaDusun, imgPertemuanLembagaDusun2, imgPertemuanLembagaDusun3],
   },
   {
     title: 'Pertemuan Pemuda',
