@@ -12,10 +12,17 @@ import imgKelompokTani from '../assets/kegiatan/kegiatan-kelompok tani.jpeg'
 import imgKelompokTani2 from '../assets/kegiatan/kegiatan-kelompok tani 2.jpeg'
 import imgPkk from '../assets/kegiatan/kegiatan-pkk.jpeg'
 import imgPosyandu from '../assets/kegiatan/kegiatan-posyandu.jpeg'
+import imgPosyandu2 from '../assets/kegiatan/kegiatan-posyandu 2.jpeg'
+import imgPosyandu3 from '../assets/kegiatan/kegiatan-posyandu 3.jpeg'
+import imgPosyandu4 from '../assets/kegiatan/kegiatan-posyandu 4.jpeg'
+import imgPosyandu5 from '../assets/kegiatan/kegiatan-posyandu 5.jpeg'
 import imgSenam from '../assets/kegiatan/kegiatan-senam ibu.jpeg'
+import imgSenam2 from '../assets/kegiatan/kegiatan-senam ibu 2.jpeg'
 import imgPertemuanLembagaDusun from '../assets/kegiatan/kegiatan-pertemuan lembaga dusun.jpeg'
 import imgPertemuanLembagaDusun2 from '../assets/kegiatan/kegiatan-pertemuan lembaga dusun 2.jpeg'
 import imgPertemuanLembagaDusun3 from '../assets/kegiatan/kegiatan-pertemuan lembaga dusun 3.jpeg'
+import imgVoli from '../assets/kegiatan/kegiatan-voli.jpeg'
+import imgVoli2 from '../assets/kegiatan/kegiatan-voli2.jpeg'
 
 export const activities: ActivityItem[] = [
   {
@@ -58,7 +65,7 @@ export const activities: ActivityItem[] = [
     title: 'Posyandu Nyawiji Menur',
     description: 'Pelayanan kesehatan ibu dan balita melalui penimbangan, imunisasi, dan penyuluhan.',
     schedule: 'Sebulan sekali, Tanggal 13',
-    images: [imgPosyandu],
+    images: [imgPosyandu, imgPosyandu2, imgPosyandu3, imgPosyandu4, imgPosyandu5],
   },
   {
     title: 'Kelompok Kesenian',
@@ -82,13 +89,13 @@ export const activities: ActivityItem[] = [
     title: 'Voli Rutin',
     description: 'Olahraga voli rutin sebagai sarana rekreasi dan mempererat kebersamaan warga.',
     schedule: 'Setiap hari',
-    images: ['https://images.unsplash.com/photo-1612872087720-bb876e2e67d6?q=80&w=2670&auto=format&fit=crop'],
+    images: [imgVoli, imgVoli2],
   },
   {
     title: 'Senam Ibu-ibu',
     description: 'Kegiatan senam pagi untuk menjaga kebugaran dan kesehatan ibu-ibu dusun.',
     schedule: 'Setiap hari Sabtu',
-    images: [imgSenam],
+    images: [imgSenam, imgSenam2],
   },
   {
     title: 'Gejog Lesung',

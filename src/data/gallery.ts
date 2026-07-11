@@ -6,6 +6,9 @@ import imgCup2024 from '../assets/galeri/galeri-nglaran cup 5 2024.jpg'
 import imgCup2025 from '../assets/galeri/galeri-nglaran cup 6 2025.jpg'
 import imgTakbir from '../assets/galeri/galeri-takbir keliling.jpg'
 import imgSungaiOyo from '../assets/galeri/galeri-sungai oyo.jpeg'
+import imgVoli2 from '../assets/kegiatan/kegiatan-voli2.jpeg'
+import imgPosyandu4 from '../assets/kegiatan/kegiatan-posyandu 4.jpeg'
+import imgSenam2 from '../assets/kegiatan/kegiatan-senam ibu 2.jpeg'
 
 export const galleryItems: GalleryItem[] = [
   {
@@ -49,5 +52,26 @@ export const galleryItems: GalleryItem[] = [
     description: 'Keindahan aliran Sungai Oyo yang asri, menawarkan potensi wisata alam yang menyegarkan di sekitar dusun.',
     meta: 'Wisata Alam',
     imageSrc: imgSungaiOyo,
+  },
+  {
+    id: 7,
+    title: 'Latihan Voli Bersama',
+    description: 'Keseruan warga Dusun Nglaran saat bermain voli bersama guna memupuk sportivitas dan menjaga kebersamaan.',
+    meta: 'Olahraga',
+    imageSrc: imgVoli2,
+  },
+  {
+    id: 8,
+    title: 'Pelayanan Posyandu',
+    description: 'Kegiatan rutin penimbangan balita dan pelayanan kesehatan dasar di Posyandu Nyawiji Menur.',
+    meta: 'Kesehatan',
+    imageSrc: imgPosyandu4,
+  },
+  {
+    id: 9,
+    title: 'Senam Sehat Ibu-Ibu',
+    description: 'Semangat kebersamaan dan keceriaan ibu-ibu Dusun Nglaran saat melaksanakan senam bugar bersama.',
+    meta: 'Kesehatan',
+    imageSrc: imgSenam2,
   },
 ]
