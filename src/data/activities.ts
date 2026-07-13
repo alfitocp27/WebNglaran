@@ -23,13 +23,17 @@ import imgPertemuanLembagaDusun2 from '../assets/kegiatan/kegiatan-pertemuan lem
 import imgPertemuanLembagaDusun3 from '../assets/kegiatan/kegiatan-pertemuan lembaga dusun 3.jpeg'
 import imgVoli from '../assets/kegiatan/kegiatan-voli.jpeg'
 import imgVoli2 from '../assets/kegiatan/kegiatan-voli2.jpeg'
+import imgPertemuanPemuda from '../assets/kegiatan/kegiatan - Pertemuan Pemuda.jpeg'
+import imgPertemuanPemuda2 from '../assets/kegiatan/kegiatan - Pertemuan Pemuda 2.jpeg'
+import imgPertemuanWarga from '../assets/kegiatan/kegiatan - pertemuan warga rt 1.jpeg'
+import imgPeternakan from '../assets/kegiatan/kegiatan - peternakan.jpeg'
 
 export const activities: ActivityItem[] = [
   {
     title: 'Pertemuan Warga',
     description: 'Pertemuan rutin warga untuk membahas perkembangan dan musyawarah dusun.',
     schedule: 'Sebulan sekali per RT',
-    images: ['https://img.magnific.com/foto-gratis/pemandangan-kabut-pagi-dan-pegunungan-dengan-balon-udara-panas-saat-matahari-terbit_335224-794.jpg?semt=ais_hybrid&w=740&q=80'],
+    images: [imgPertemuanWarga],
   },
   {
     title: 'Pertemuan Lembaga Dusun',
@@ -41,7 +45,7 @@ export const activities: ActivityItem[] = [
     title: 'Pertemuan Pemuda',
     description: 'Koordinasi dan kegiatan positif pemuda dusun untuk kemajuan Nglaran.',
     schedule: 'Sebulan sekali',
-    images: ['https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=2670&auto=format&fit=crop'],
+    images: [imgPertemuanPemuda, imgPertemuanPemuda2],
   },
   {
     title: 'Kelompok Tani Bugel',
@@ -75,7 +79,7 @@ export const activities: ActivityItem[] = [
   },
   {
     title: 'Kelompok Pengelola Air Bersih',
-    description: 'Pengelolaan dan pemeliharaan sumber air bersih untuk kebutuhan warga.',
+    description: 'Pengelolaan and pemeliharaan sumber air bersih untuk kebutuhan warga.',
     schedule: 'Sebulan sekali',
     images: ['https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=2674&auto=format&fit=crop'],
   },
@@ -83,7 +87,7 @@ export const activities: ActivityItem[] = [
     title: 'Kelompok Peternakan',
     description: 'Koordinasi dan diskusi seputar peternakan sapi, kambing, dan hewan ternak lainnya.',
     schedule: 'Sebulan sekali',
-    images: ['https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=2674&auto=format&fit=crop'],
+    images: [imgPeternakan],
   },
   {
     title: 'Voli Rutin',

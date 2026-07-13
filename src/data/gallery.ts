@@ -9,6 +9,9 @@ import imgSungaiOyo from '../assets/galeri/galeri-sungai oyo.jpeg'
 import imgVoli2 from '../assets/kegiatan/kegiatan-voli2.jpeg'
 import imgPosyandu4 from '../assets/kegiatan/kegiatan-posyandu 4.jpeg'
 import imgSenam2 from '../assets/kegiatan/kegiatan-senam ibu 2.jpeg'
+import imgJarik from '../assets/galeri/galeri - demonstrasi pemakaian kain jarik.jpeg'
+import imgKerjaBakti from '../assets/galeri/galeri - kerja bakti.jpeg'
+import imgRapatRasulan from '../assets/galeri/galeri - rapat panitia rasulan.jpeg'
 
 export const galleryItems: GalleryItem[] = [
   {
@@ -73,5 +76,26 @@ export const galleryItems: GalleryItem[] = [
     description: 'Semangat kebersamaan dan keceriaan ibu-ibu Dusun Nglaran saat melaksanakan senam bugar bersama.',
     meta: 'Kesehatan',
     imageSrc: imgSenam2,
+  },
+  {
+    id: 10,
+    title: 'Demonstrasi Pemakaian Kain Jarik',
+    description: 'Kegiatan pelatihan demonstrasi tata cara pemakaian kain jarik tradisional bagi warga.',
+    meta: 'Kebudayaan',
+    imageSrc: imgJarik,
+  },
+  {
+    id: 11,
+    title: 'Kerja Bakti Lingkungan',
+    description: 'Aksi gotong royong warga Dusun Nglaran dalam membersihkan dan merapikan lingkungan dusun.',
+    meta: 'Sosial',
+    imageSrc: imgKerjaBakti,
+  },
+  {
+    id: 12,
+    title: 'Rapat Panitia Rasulan',
+    description: 'Musyawarah persiapan warga Dusun Nglaran dalam menyambut upacara adat Rasulan.',
+    meta: 'Rapat',
+    imageSrc: imgRapatRasulan,
   },
 ]

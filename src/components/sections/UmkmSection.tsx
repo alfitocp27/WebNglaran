@@ -28,10 +28,11 @@ export default function UmkmSection() {
           </p>
         </div>
 
-        <div className="stagger-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+        <div className="stagger-container flex flex-wrap justify-center gap-6">
           {umkmList.map((item) => (
             <AnimatedPresenceCard
               key={item.title}
+              className="w-full max-w-[380px]"
               title={item.title}
               topText={item.category}
               description={item.description}
