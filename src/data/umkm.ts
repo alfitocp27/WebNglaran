@@ -3,6 +3,7 @@ import type { UmkmItem } from '../types/content'
 import imgIbuNovi from '../assets/umkm/umkm - ibu novi.jpeg'
 import imgLaundryMbakRida from '../assets/umkm/umkm - laundry mbak rida.jpeg'
 import imgBuburNengIndri from '../assets/umkm/umkm - bubur neng indri.jpeg'
+import imgKueMbakEni from '../assets/umkm/umkm - kue mbak eni.png'
 
 export const umkmList: UmkmItem[] = [
   {
@@ -22,10 +23,10 @@ export const umkmList: UmkmItem[] = [
     location: 'RT 02',
   },
   {
-    title: 'Kedai Pop Ice & Camilan',
+    title: 'Aneka Kue Mbak Eni',
     category: 'Kuliner',
-    description: 'Menyediakan minuman Pop Ice segar aneka rasa dengan beragam topping menarik, lengkap dengan aneka camilan ringan.',
-    imageUrl: 'https://images.unsplash.com/photo-1553530666-ba11a7da3888?q=80&w=2669&auto=format&fit=crop',
+    description: 'Menyediakan berbagai macam kue basah, kue kering lezat, serta pesanan jajanan pasar untuk berbagai kebutuhan acara.',
+    imageUrl: imgKueMbakEni,
     whatsapp: 'https://wa.me/6281234567890',
     location: 'RT 05',
   },
