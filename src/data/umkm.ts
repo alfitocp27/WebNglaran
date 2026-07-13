@@ -1,6 +1,8 @@
 import type { UmkmItem } from '../types/content'
 
 import imgIbuNovi from '../assets/umkm/umkm - ibu novi.jpeg'
+import imgLaundryMbakRida from '../assets/umkm/umkm - laundry mbak rida.jpeg'
+import imgBuburNengIndri from '../assets/umkm/umkm - bubur neng indri.jpeg'
 
 export const umkmList: UmkmItem[] = [
   {
@@ -12,10 +14,10 @@ export const umkmList: UmkmItem[] = [
     location: 'RT 05',
   },
   {
-    title: 'Laundry Bersih',
+    title: 'Laundry Mbak Rida',
     category: 'Jasa',
     description: 'Jasa cuci dan setrika pakaian cepat, bersih, harum, dan rapi untuk kebutuhan warga dusun.',
-    imageUrl: 'https://images.unsplash.com/photo-1545173168-9f1947e80154?q=80&w=2670&auto=format&fit=crop',
+    imageUrl: imgLaundryMbakRida,
     whatsapp: 'https://wa.me/6281234567890',
     location: 'RT 02',
   },
@@ -28,10 +30,10 @@ export const umkmList: UmkmItem[] = [
     location: 'RT 05',
   },
   {
-    title: 'Warung Bubur Ayam',
+    title: 'Bubur Ayam Neng Indri',
     category: 'Kuliner',
     description: 'Sarapan pagi dengan bubur ayam hangat lezat yang dipadu dengan kaldu tradisional bumbu rempah nusantara.',
-    imageUrl: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=2670&auto=format&fit=crop',
+    imageUrl: imgBuburNengIndri,
     whatsapp: 'https://wa.me/6281234567890',
     location: 'RT 02',
   },
