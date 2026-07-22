@@ -12,6 +12,7 @@ import imgSenam2 from '../assets/kegiatan/kegiatan-senam ibu 2.jpeg'
 import imgJarik from '../assets/galeri/galeri - demonstrasi pemakaian kain jarik.jpeg'
 import imgKerjaBakti from '../assets/galeri/galeri - kerja bakti.jpeg'
 import imgRapatRasulan from '../assets/galeri/galeri - rapat panitia rasulan.jpeg'
+import imgPemasanganPeta from '../assets/galeri/galeri-pemasangan peta.jpeg'
 
 export const galleryItems: GalleryItem[] = [
   {
@@ -97,5 +98,12 @@ export const galleryItems: GalleryItem[] = [
     description: 'Musyawarah persiapan warga Dusun Nglaran dalam menyambut upacara adat Rasulan.',
     meta: 'Rapat',
     imageSrc: imgRapatRasulan,
+  },
+  {
+    id: 13,
+    title: 'Pemasangan Peta Dusun Nglaran',
+    description: 'Pemasangan papan informasi peta dusun secara gotong-royong guna mempermudah akses informasi wilayah bagi warga dan pendatang.',
+    meta: 'Sosial',
+    imageSrc: imgPemasanganPeta,
   },
 ]

@@ -27,6 +27,7 @@ import imgPertemuanPemuda from '../assets/kegiatan/kegiatan - Pertemuan Pemuda.j
 import imgPertemuanPemuda2 from '../assets/kegiatan/kegiatan - Pertemuan Pemuda 2.jpeg'
 import imgPertemuanWarga from '../assets/kegiatan/kegiatan - pertemuan warga rt 1.jpeg'
 import imgPeternakan from '../assets/kegiatan/kegiatan - peternakan.jpeg'
+import imgWanitaTani from '../assets/kegiatan/kegiatan-wanita tani.jpeg'
 
 export const activities: ActivityItem[] = [
   {
@@ -57,7 +58,7 @@ export const activities: ActivityItem[] = [
     title: 'Kelompok Wanita Tani',
     description: 'Kegiatan kelompok wanita tani dalam pengelolaan pertanian dan pemberdayaan perempuan.',
     schedule: 'Sebulan sekali, Tanggal 15',
-    images: ['https://images.unsplash.com/photo-1574943320219-553eb213f72d?q=80&w=2670&auto=format&fit=crop'],
+    images: [imgWanitaTani],
   },
   {
     title: 'PKK Dusun',
