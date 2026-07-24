@@ -84,7 +84,7 @@ export default function StatistikPadukuhan() {
             </ChartCard>
           </div>
           <div className="stagger-card h-full">
-            <ChartCard title="Data RW Padukuhan Nglaran">
+            <ChartCard title="Data RT Padukuhan Nglaran">
               <ResponsiveBarChart data={rt} layout="horizontal" fillColor="#f8c8c8" sortData={false} />
             </ChartCard>
           </div>
