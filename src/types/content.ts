@@ -29,7 +29,7 @@ export interface UmkmItem {
   category: string
   description: string
   imageUrl: string
-  whatsapp: string
+  mapsUrl: string
   location: string
   hasVideo?: boolean
   videoUrl?: string

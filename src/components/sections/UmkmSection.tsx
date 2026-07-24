@@ -37,8 +37,8 @@ export default function UmkmSection() {
               topText={item.category}
               description={item.description}
               imageUrl={item.imageUrl}
-              buttonText="Hubungi Sekarang"
-              buttonHref={item.whatsapp}
+              buttonText="Petunjuk Arah"
+              buttonHref={item.mapsUrl}
               footerLeft={item.title.split(' ').slice(0, 2).join(' ')}
               footerRight={item.location}
               hasVideo={item.hasVideo}
