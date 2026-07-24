@@ -33,6 +33,7 @@ export interface UmkmItem {
   location: string
   hasVideo?: boolean
   videoUrl?: string
+  posterUrl?: string
 }
 
 export interface GalleryItem {

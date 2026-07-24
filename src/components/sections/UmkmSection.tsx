@@ -39,6 +39,7 @@ export default function UmkmSection() {
               imageUrl={item.imageUrl}
               buttonText="Petunjuk Arah"
               buttonHref={item.mapsUrl}
+              posterUrl={item.posterUrl}
               footerLeft={item.title.split(' ').slice(0, 2).join(' ')}
               footerRight={item.location}
               hasVideo={item.hasVideo}

@@ -3,6 +3,7 @@ import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion'
 import { Play } from 'lucide-react'
 import { cn } from '@/src/lib/utils'
 import VideoModal from '@/src/components/ui/VideoModal'
+import PosterModal from '@/src/components/ui/PosterModal'
 
 const FALLBACK_IMG = 'https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=600&h=400&fit=crop'
 
@@ -18,6 +19,7 @@ interface AnimatedPresenceCardProps {
   className?: string
   hasVideo?: boolean
   videoUrl?: string
+  posterUrl?: string
 }
 
 export function AnimatedPresenceCard({
@@ -32,8 +34,10 @@ export function AnimatedPresenceCard({
   className,
   hasVideo = false,
   videoUrl,
+  posterUrl,
 }: AnimatedPresenceCardProps) {
   const [videoOpen, setVideoOpen] = useState(false)
+  const [posterOpen, setPosterOpen] = useState(false)
   const [imgSrc, setImgSrc] = useState(imageUrl)
   const ref = useRef<HTMLDivElement>(null)
 
@@ -118,30 +122,56 @@ export function AnimatedPresenceCard({
               {title}
             </h2>
             <p className="mt-3 text-zinc-400 text-sm leading-relaxed flex-grow">{description}</p>
-            <div className="mt-6 md:mt-8">
-              <a
-                href={buttonHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-white transition-colors duration-200 hover:text-zinc-300 py-2 border-b border-transparent hover:border-zinc-300 min-h-[44px]"
-              >
-                {buttonText}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
+            <div className="mt-6 md:mt-8 flex flex-wrap gap-x-6 gap-y-2 items-center">
+              {buttonHref && (
+                <a
+                  href={buttonHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-white transition-colors duration-200 hover:text-zinc-300 py-2 border-b border-transparent hover:border-zinc-300 min-h-[44px]"
                 >
-                  <path d="M5 12h14" />
-                  <path d="m12 5 7 7-7 7" />
-                </svg>
-              </a>
+                  {buttonText}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </a>
+              )}
+              {posterUrl && (
+                <button
+                  onClick={() => setPosterOpen(true)}
+                  className="inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-white transition-colors duration-200 hover:text-zinc-300 py-2 border-b border-transparent hover:border-zinc-300 min-h-[44px] cursor-pointer"
+                >
+                  Lihat Poster
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                    <circle cx="9" cy="9" r="2" />
+                    <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+                  </svg>
+                </button>
+              )}
             </div>
           </div>
 
@@ -157,6 +187,14 @@ export function AnimatedPresenceCard({
           videoUrl={videoUrl}
           isOpen={videoOpen}
           onClose={() => setVideoOpen(false)}
+        />
+      )}
+      {posterUrl && (
+        <PosterModal
+          imageUrl={posterUrl}
+          isOpen={posterOpen}
+          onClose={() => setPosterOpen(false)}
+          title={typeof title === 'string' ? title : 'UMKM'}
         />
       )}
     </>

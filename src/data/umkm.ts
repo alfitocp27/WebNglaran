@@ -5,6 +5,10 @@ import imgLaundryMbakRida from '../assets/umkm/umkm - laundry mbak rida.jpeg'
 import imgBuburNengIndri from '../assets/umkm/umkm - bubur neng indri.jpeg'
 import imgKueMbakEni from '../assets/umkm/umkm - kue mbak eni.png'
 
+import posterBuburNengIndri from '../assets/umkm/poster/Bubur ayam neng indri.png'
+import posterLaundryMbakRida from '../assets/umkm/poster/Laundry Mbak Rida.png'
+import posterKueMbakEni from '../assets/umkm/poster/Poster Kue Mbak Eni.png'
+
 export const umkmList: UmkmItem[] = [
   {
     title: 'Bubur Ayam Neng Indri',
@@ -13,6 +17,7 @@ export const umkmList: UmkmItem[] = [
     imageUrl: imgBuburNengIndri,
     mapsUrl: 'https://maps.app.goo.gl/eyMuSKAxqKzbxR6i7?g_st=ipc',
     location: 'RT 02',
+    posterUrl: posterBuburNengIndri,
   },
   {
     title: 'Laundry Mbak Rida',
@@ -21,6 +26,7 @@ export const umkmList: UmkmItem[] = [
     imageUrl: imgLaundryMbakRida,
     mapsUrl: 'https://maps.app.goo.gl/kDtyWkjQevqyJWuf8?g_st=iw',
     location: 'RT 02',
+    posterUrl: posterLaundryMbakRida,
   },
   {
     title: 'Aneka Kue Mbak Eni',
@@ -29,6 +35,7 @@ export const umkmList: UmkmItem[] = [
     imageUrl: imgKueMbakEni,
     mapsUrl: 'https://maps.app.goo.gl/Hf1RVbq6RGLhJ7de7?g_st=ic',
     location: 'RT 05',
+    posterUrl: posterKueMbakEni,
   },
   {
     title: 'Warung Kelontong Ibu Novi',
